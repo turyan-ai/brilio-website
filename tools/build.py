@@ -2,7 +2,7 @@
 
 Run from the repo root after editing: python3 tools/build.py .
 """
-import json, sys, os
+import json, sys, os, re
 
 OUT = sys.argv[1]
 SITE = "https://www.brilioclean.com"
@@ -28,6 +28,14 @@ PRIMETIME_QUOTE = "https://primetimewindowcleaning.com/contact/"
 STAR = '<svg class="star" aria-hidden="true"><use href="#star"/></svg>'
 
 
+def logo_svg():
+    """Inline wordmark from brand/brilio-logo.svg; the lettering follows the text color so it works in dark mode."""
+    src = open(os.path.join(OUT, "brand", "brilio-logo.svg")).read()
+    src = src.replace('fill="#0d2233"', 'fill="currentColor"').replace("<title>Brilio</title>", "")
+    src = re.sub(r' width="\d+" height="\d+"', "", src, count=1)
+    return src.replace("<svg ", '<svg class="logo-mark" role="img" aria-label="Brilio" ', 1).strip()
+
+
 def head(title, desc, path, extra=""):
     url = SITE + path
     return f'''<!doctype html>
@@ -44,7 +52,12 @@ def head(title, desc, path, extra=""):
 <meta property="og:url" content="{url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Brilio">
+<meta property="og:image" content="{SITE}/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
@@ -52,7 +65,7 @@ def head(title, desc, path, extra=""):
 {extra}</head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="star" viewBox="-10 -10 20 20"><polygon points="0,-10 2.25,-3.9 8.66,-5 4.5,0 8.66,5 2.25,3.9 0,10 -2.25,3.9 -8.66,5 -4.5,0 -8.66,-5 -2.25,-3.9"/></symbol>
+  <symbol id="star" viewBox="-10 -10 20 20"><path d="M0,-10 C1.2,-3 3,-1.2 10,0 C3,1.2 1.2,3 0,10 C-1.2,3 -3,1.2 -10,0 C-3,-1.2 -1.2,-3 0,-10Z"/></symbol>
 </svg>
 '''
 
@@ -63,7 +76,7 @@ def header(active=""):
         return f'<a href="{href}"{cur}>{label}</a>'
     return f'''<header class="site">
   <div class="wrap">
-    <a class="logo" href="/" aria-label="Brilio home">{STAR}brilio</a>
+    <a class="logo" href="/" aria-label="Brilio home">{logo_svg()}</a>
     <nav class="main" aria-label="Main">
       {link("/residential-cleaning", "Residential", "residential-cleaning")}
       {link("/short-term-rental-cleaning", "Short-Term Rentals", "short-term-rental-cleaning")}
@@ -125,7 +138,7 @@ def quote(selected, heading="Tell us about your space.", sub="Send us a few deta
 def footer():
     return f'''<footer class="site">
   <div class="wrap">
-    <a class="logo" href="/" style="font-size:1.2rem">{STAR}brilio</a>
+    <a class="logo logo-sm" href="/" aria-label="Brilio home">{logo_svg()}</a>
     <div class="contact">
       <a href="tel:{TEL}">{PHONE}</a>
       <a href="mailto:{EMAIL}">{EMAIL}</a>

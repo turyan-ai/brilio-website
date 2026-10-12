@@ -42,14 +42,16 @@ p { margin: 0; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
 .eyebrow { font-family: var(--mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.star { width: 1em; height: 1em; fill: var(--star); flex: none; }
+.star { width: 1em; height: 1em; fill: var(--sky); flex: none; }
 
 
 /* header */
 header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.logo { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 800; font-size: 1.5rem; text-decoration: none; letter-spacing: -0.03em; }
-.logo .star { width: .8em; height: .8em; }
+.logo { display: flex; align-items: center; color: var(--ink); text-decoration: none; }
+.logo-mark { display: block; height: 46px; width: auto; }
+@media (max-width: 600px) { .logo-mark { height: 40px; } }
+.logo-sm .logo-mark { height: 34px; }
 nav.main { display: flex; gap: 22px; white-space: nowrap; font-weight: 500; font-size: .95rem; }
 nav.main a { text-decoration: none; color: var(--muted); }
 nav.main a:hover { color: var(--ink); }
