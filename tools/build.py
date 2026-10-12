@@ -90,7 +90,7 @@ def quote(selected, heading="Tell us about your space.", sub="Send us a few deta
           <div><span class="lbl">Hours</span><span class="val">{HOURS}</span></div>
         </div>
       </div>
-      <form class="qf" id="quoteForm" action="https://formsubmit.co/ajax/{EMAIL}" method="POST" novalidate>
+      <form class="qf" id="quoteForm" action="https://formsubmit.co/ajax/df6a463ea6c9df99f22c3e2976bc7e55" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New quote request from brilioclean.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
