@@ -23,12 +23,18 @@
     btn.disabled = true;
     btn.textContent = 'Sending…';
     fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
-      .then(function (r) { return r.json().then(function (d) { if (!r.ok || String(d.success) !== 'true') throw new Error(); }); })
+      .then(function (r) {
+        return r.json().then(function (d) {
+          // FormSubmit explains failures (e.g. "This form needs Activation") in d.message.
+          if (!r.ok || String(d.success) !== 'true') throw new Error(d.message || 'HTTP ' + r.status);
+        });
+      })
       .then(function () {
         form.reset();
         ok.hidden = false;
       })
-      .catch(function () {
+      .catch(function (e) {
+        console.warn('Quote form failed:', e.message);
         err.textContent = 'Your request didn’t go through. Please call or text us at (773) 766-5661, or email info@brilioclean.com.';
         err.hidden = false;
       })
