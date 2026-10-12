@@ -16,6 +16,11 @@ SERVICES = [
     ("airbnb-cleaning", "Airbnb & short-term rentals"),
     ("commercial-cleaning", "Office & commercial"),
     ("floor-care", "Floor care (strip, wax, buff)"),
+    ("post-construction-cleaning", "Post-construction cleaning"),
+    ("move-out-cleaning", "Move-in / move-out cleaning"),
+    ("deep-cleaning", "Deep cleaning"),
+    ("window-cleaning", "Window cleaning"),
+    ("carpet-cleaning", "Carpet &amp; upholstery cleaning"),
 ]
 
 STAR = '<svg class="star" aria-hidden="true"><use href="#star"/></svg>'
@@ -62,6 +67,7 @@ def header(active=""):
       {link("/airbnb-cleaning", "Airbnb", "airbnb-cleaning")}
       {link("/commercial-cleaning", "Commercial", "commercial-cleaning")}
       {link("/floor-care", "Floor Care", "floor-care")}
+      <a href="/#more-services">More Services</a>
     </nav>
     <div class="hdr-right">
       <a class="hdr-phone" href="tel:{TEL}">{PHONE}</a>
@@ -226,7 +232,7 @@ def home():
       <div>
         <p class="eyebrow">Chicago cleaning company</p>
         <h1 style="margin-top:14px">Every space, <em>brilliantly</em> clean.</h1>
-        <p class="lede">Brilio cleans homes, Airbnb and short-term rentals, offices, and commercial floors. Based in Chicago and serving Illinois, Indiana, and Wisconsin.</p>
+        <p class="lede">Brilio cleans homes, Airbnb and short-term rentals, offices, new construction, and commercial floors. Based in Chicago and serving Illinois, Indiana, and Wisconsin.</p>
         <div class="ctas">
           <a class="btn sky" href="#quote">Get a free quote</a>
           <a class="btn ghost" href="tel:{TEL}">Call {PHONE}</a>
@@ -242,7 +248,7 @@ def home():
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">What we clean</p>
-        <h2>Four services, one standard.</h2>
+        <h2>Every kind of clean, one standard.</h2>
         <p>Pick what you need. Every visit follows a written checklist, so you get the same result whichever crew shows up.</p>
       </div>
       <div class="services">
@@ -274,6 +280,22 @@ def home():
           <ul><li>Full strip &amp; wax</li><li>Scrub-and-recoat between strips</li><li>Routine buffing and burnishing</li></ul>
           <a class="more" href="/floor-care">Floor care</a>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="more-services" style="padding-top:0">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:24px">
+        <p class="eyebrow">More services</p>
+        <h2>Specialty and one-time cleaning</h2>
+      </div>
+      <div class="mini-services">
+        <a class="mini" href="/post-construction-cleaning"><h3>Post-construction cleaning</h3><p>Dust and debris removed after a renovation or new build, so the space is ready to use.</p></a>
+        <a class="mini" href="/move-out-cleaning"><h3>Move-in / move-out cleaning</h3><p>Empty homes and apartments cleaned top to bottom for tenants, landlords, and sellers.</p></a>
+        <a class="mini" href="/deep-cleaning"><h3>Deep cleaning</h3><p>Detailed top-to-bottom cleaning for a first visit, a new season, or a fresh start.</p></a>
+        <a class="mini" href="/window-cleaning"><h3>Window cleaning</h3><p>Glass, frames, sills, and tracks for homes, offices, and storefronts.</p></a>
+        <a class="mini" href="/carpet-cleaning"><h3>Carpet &amp; upholstery cleaning</h3><p>Carpets, rugs, and furniture deep-cleaned to lift dirt, stains, and odors.</p></a>
       </div>
     </div>
   </section>
@@ -449,6 +471,99 @@ PAGES = {
             ("How often do floors need to be stripped and waxed?", "Busy commercial floors usually need a full strip and wax once or twice a year, with scrub-and-recoat and regular burnishing in between to keep the shine."),
             ("What types of floors do you work on?", "VCT, sheet vinyl, LVT, terrazzo, sealed concrete, and ceramic tile. If you’re not sure what you have, we’ll check at the walkthrough."),
             ("Is the walkthrough free?", "Yes. We look at your floors, recommend a plan, and send you a quote at no cost."),
+        ],
+    ),
+    "post-construction-cleaning": service_page(
+        "post-construction-cleaning",
+        "Post-Construction Cleaning in Chicago | Brilio",
+        "Post-construction and renovation cleaning in Chicago and across Illinois, Indiana, and Wisconsin. Dust, debris, and residue removed so new and remodeled spaces are ready for move-in.",
+        "Post-construction cleaning",
+        "Post-construction cleaning, ready for move-in.",
+        "After a renovation or new build, we remove the dust, debris, and residue the work leaves behind. We clean homes, offices, retail build-outs, and new units for builders, contractors, property managers, and owners.",
+        section("What’s included", "From rough clean to final clean", "We can clean once at the end of a project, or in phases as the trades finish.", checklist([
+            ("Rough clean", ["Leftover debris and packaging cleared", "Floors swept and vacuumed throughout", "Stickers and labels removed from fixtures and windows"]),
+            ("Dust removal", ["Walls, ledges, and door frames", "Vent covers, light fixtures, and ceiling fans", "Inside cabinets, closets, and drawers"]),
+            ("Final clean", ["Windows and glass cleaned inside", "Paint, caulk, and adhesive spots removed from hard surfaces", "Kitchens and bathrooms detailed", "Hard floors scrubbed, and finished or burnished if needed"]),
+        ])),
+        [
+            ("When should we schedule the cleaning?", "Book the final clean for when the trades have finished their work. On bigger projects we can also do a rough clean between phases, then a final clean before handover."),
+            ("Do you work with contractors and builders?", "Yes. We work with general contractors, builders, property managers, and homeowners. Tell us your handover date and we’ll plan around it."),
+            ("Can you refinish the floors too?", "Yes. Our floor care team can scrub, seal, wax, and burnish hard floors as part of the final clean."),
+            ("How is post-construction cleaning priced?", "It depends on the size of the space and how much dust and debris is left. We do a free walkthrough and then send you a quote."),
+        ],
+    ),
+    "move-out-cleaning": service_page(
+        "move-out-cleaning",
+        "Move-In &amp; Move-Out Cleaning in Chicago | Brilio",
+        "Move-in and move-out cleaning in Chicago and across Illinois, Indiana, and Wisconsin for tenants, landlords, property managers, buyers, and sellers.",
+        "Move-in / move-out cleaning",
+        "Move-in and move-out cleaning.",
+        "Moving is enough work. We clean empty homes and apartments top to bottom, inside every cabinet and appliance, so the next people walk into a spotless space. We work with tenants, landlords, property managers, and realtors.",
+        section("What’s included", "Every surface of an empty home", "", checklist([
+            ("Kitchen", ["Inside the oven, fridge, and microwave", "Inside all cabinets and drawers", "Counters, backsplash, sink, and stovetop", "Floors scrubbed"]),
+            ("Bathrooms", ["Toilet, tub, shower, and glass scrubbed", "Inside vanities and medicine cabinets", "Mirrors, fixtures, and floors"]),
+            ("Every room", ["Baseboards, doors, and door frames", "Light switches and outlets wiped", "Closets and shelves", "Window sills and tracks", "Floors vacuumed and mopped"]),
+        ])),
+        [
+            ("Does the home need to be empty?", "It’s best if it is. With furniture and boxes gone, we can reach every corner, cabinet, and baseboard."),
+            ("Can you clean on the same day as the move?", "Often, yes. We’re open every day from 6 AM to midnight, so we can usually fit a cleaning in after the movers leave."),
+            ("Do you work with landlords and property managers?", "Yes. We can clean units between tenants on a regular basis. Tell us how many units you manage."),
+            ("What if something was missed?", "Tell us within 24 hours and we’ll come back to re-clean it at no charge."),
+        ],
+    ),
+    "deep-cleaning": service_page(
+        "deep-cleaning",
+        "Deep House Cleaning in Chicago | Brilio",
+        "Deep cleaning for homes and apartments in Chicago and across Illinois, Indiana, and Wisconsin. Detailed top-to-bottom cleaning of kitchens, bathrooms, and every room.",
+        "Deep cleaning",
+        "Deep cleaning for a fresh start.",
+        "A deep clean goes past the everyday surfaces to the grime that builds up over time. It’s the right choice for a first cleaning, a seasonal refresh, or before and after hosting guests.",
+        section("What’s included", "Everything in a standard clean, plus", "", checklist([
+            ("Kitchen", ["Stovetop and backsplash degreased", "Inside the microwave", "Inside the oven and fridge on request", "Cabinet fronts and handles detailed"]),
+            ("Bathrooms", ["Grout scrubbed", "Soap scum and hard-water buildup removed", "Shower glass and fixtures descaled", "Behind and around the toilet"]),
+            ("Whole home", ["Baseboards and door frames", "Vents, ceiling fans, and light fixtures", "Window sills and blinds", "Under and behind furniture we can move"]),
+        ])),
+        [
+            ("How is a deep clean different from a standard clean?", "A standard clean keeps a home in good shape. A deep clean adds the detail work, like baseboards, grout, vents, and built-up grime, so it takes longer."),
+            ("How often do I need a deep clean?", "Many homes get one every three to six months, with standard cleans in between. We also recommend one for your first visit with us."),
+            ("Do I need to be home?", "No. Many clients leave a key or door code. Tell us what works for you when you book."),
+            ("What if I’m not happy with something?", "Tell us within 24 hours and we’ll come back to re-clean it at no charge."),
+        ],
+    ),
+    "window-cleaning": service_page(
+        "window-cleaning",
+        "Window Cleaning in Chicago | Brilio",
+        "Residential and commercial window cleaning in Chicago and across Illinois, Indiana, and Wisconsin. Glass, frames, sills, tracks, and storefronts.",
+        "Window cleaning",
+        "Window cleaning, inside and out.",
+        "Streak-free windows for homes, offices, and storefronts. Book a one-time cleaning or add windows to your regular schedule.",
+        section("What’s included", "More than just the glass", "", checklist([
+            ("Glass", ["Interior glass cleaned streak-free", "Exterior glass we can safely reach", "Glass doors and partitions"]),
+            ("Frames &amp; tracks", ["Frames and sills wiped", "Tracks vacuumed and cleaned", "Screens dusted and wiped"]),
+            ("Storefronts &amp; offices", ["Storefront glass and entry doors", "Regular schedules available", "Early-morning or evening visits"]),
+        ])),
+        [
+            ("Do you clean high-rise windows?", "We clean windows we can reach safely from inside or from the ground. For high-rise exteriors that need lifts or rope access, ask us and we’ll tell you what we can do."),
+            ("Can you clean storefront windows regularly?", "Yes. We can set up a weekly, biweekly, or monthly visit, before you open or after you close."),
+            ("Can I add windows to my regular cleaning?", "Yes. Just tell us when you book or call."),
+        ],
+    ),
+    "carpet-cleaning": service_page(
+        "carpet-cleaning",
+        "Carpet &amp; Upholstery Cleaning in Chicago | Brilio",
+        "Carpet, rug, and upholstery cleaning for homes, rentals, and offices in Chicago and across Illinois, Indiana, and Wisconsin.",
+        "Carpet &amp; upholstery cleaning",
+        "Carpet and upholstery cleaning.",
+        "We deep-clean carpets, rugs, and upholstered furniture to lift the dirt, stains, and odors that vacuuming leaves behind. For homes, short-term rentals, and offices.",
+        section("What’s included", "Carpets, rugs, and furniture", "", checklist([
+            ("Carpets &amp; rugs", ["Stains and high-traffic areas pre-treated", "Deep cleaning to pull out embedded dirt", "Odor treatment on request"]),
+            ("Upholstery", ["Sofas and sectionals", "Dining and office chairs", "Ottomans and headboards"]),
+            ("Rentals &amp; offices", ["Carpet refresh between guests or tenants", "Office carpet and common areas", "After-hours scheduling"]),
+        ])),
+        [
+            ("How long does carpet take to dry?", "Usually several hours, depending on the carpet and the airflow in the room. Opening windows or running fans speeds it up."),
+            ("Can you remove every stain?", "We remove most everyday stains. Some old or set-in stains, like bleach or dye, can’t be fully removed, and we’ll tell you up front if we think that’s the case."),
+            ("Can you combine this with another cleaning?", "Yes. Carpet cleaning pairs well with a deep clean, a move-out clean, or a rental turnover."),
         ],
     ),
 }
