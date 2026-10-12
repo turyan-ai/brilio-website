@@ -310,7 +310,7 @@ def home():
         <a class="mini" href="/move-out-cleaning"><h3>Move-in / move-out cleaning</h3><p>Empty homes and apartments cleaned top to bottom for tenants, landlords, and sellers.</p></a>
         <a class="mini" href="/linen-rental-laundry"><h3>Linen rental &amp; laundry</h3><p>Fresh sheets and towels for every stay, or your own linens washed and folded. For short-term rentals.</p></a>
         <a class="mini" href="/deep-cleaning"><h3>Deep cleaning</h3><p>Detailed top-to-bottom cleaning for a first visit, a new season, or a fresh start.</p></a>
-        <a class="mini" href="/window-cleaning"><h3>Window cleaning</h3><p>Provided by our sister company, Primetime Window Cleaners.</p></a>
+        <a class="mini" href="/window-cleaning"><h3>Window cleaning</h3><p>Provided by our partner company, Primetime Window Cleaners.</p></a>
       </div>
     </div>
   </section>
@@ -446,7 +446,7 @@ PAGES = {
             ("Linen rental &amp; laundry", ["Rent our linens: we pick up, drop off, and change them", "Mattress protectors available", "Or we wash, dry, and fold your own linens", '<a href="/linen-rental-laundry">See linen rental &amp; laundry</a>']),
             ("Restocking &amp; supplies", ["Guest essentials restocked every visit", "Low-supply alerts before you run out", "Supply runs on request"]),
             ("Inspections &amp; damage reports", ["Pre-arrival checks before guests arrive", "Photos of damaged items and furniture", "Photos of damage to windows, doors, handles, bathrooms, and walls", "Missing items and lost-and-found logged"]),
-            ("Deep cleans", ["Periodic deep cleans between bookings", "Inside appliances, baseboards, and vents", "Window cleaning through our sister company"]),
+            ("Deep cleans", ["Periodic deep cleans between bookings", "Inside appliances, baseboards, and vents", "Window cleaning through our partner company"]),
             ("Mid-stay &amp; new listings", ["Mid-stay cleans for longer bookings", "Launch cleans for new listings", "Photo-ready staging before listing photos"]),
         ])) + section("How it works", "Set up once, cleaned after every stay", "", '''<ol class="steps steps-light">
         <li><span class="n">Step 1</span><h3>Walkthrough</h3><p>We visit the property and build a checklist for your unit and your standards.</p></li>
@@ -595,16 +595,16 @@ PAGES = {
         ],
     ),
     "window-cleaning": head(
-        "Window Cleaning | Primetime Window Cleaners, a Brilio Company",
-        "Window cleaning for Brilio clients is provided by our sister company, Primetime Window Cleaners. Request a window cleaning quote from Primetime.",
+        "Window Cleaning | Primetime Window Cleaners, a Brilio Partner",
+        "Window cleaning for Brilio clients is provided by our partner company, Primetime Window Cleaners. Request a window cleaning quote from Primetime.",
         "/window-cleaning",
     ) + header() + f'''
 <main id="top">
   <section class="page-hero">
     <div class="wrap">
       <p class="crumbs"><a href="/">Home</a> / Window cleaning</p>
-      <h1>Window cleaning by our sister company.</h1>
-      <p class="lede">Window cleaning is handled by <b>{PRIMETIME}</b>, Brilio’s sister company. Request your window cleaning quote directly from them, and they’ll take it from there.</p>
+      <h1>Window cleaning by our partner company.</h1>
+      <p class="lede">Window cleaning is handled by <b>{PRIMETIME}</b>, Brilio’s partner company. Request your window cleaning quote directly from them, and they’ll take it from there.</p>
       <div class="ctas">
         <a class="btn sky" href="{PRIMETIME_QUOTE}" target="_blank" rel="noopener">Get a window cleaning quote from Primetime</a>
       </div>
