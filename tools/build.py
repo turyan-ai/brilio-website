@@ -6,6 +6,8 @@ import json, sys, os, re
 
 OUT = sys.argv[1]
 SITE = "https://www.brilioclean.com"
+# Phone is hidden until the business line is active. Set SHOW_PHONE = True to show it everywhere again.
+SHOW_PHONE = False
 PHONE = "(773) 766-5661"
 TEL = "+17737665661"
 EMAIL = "info@brilioclean.com"
@@ -24,6 +26,10 @@ SERVICES = [
 
 PRIMETIME = "Primetime Window Cleaners"
 PRIMETIME_QUOTE = "https://primetimewindowcleaning.com/contact/"
+
+def if_phone(with_phone, without=""):
+    return with_phone if SHOW_PHONE else without
+
 
 STAR = '<svg class="star" aria-hidden="true"><use href="#star"/></svg>'
 
@@ -85,7 +91,7 @@ def header(active=""):
       <a href="/#more-services">More Services</a>
     </nav>
     <div class="hdr-right">
-      <a class="hdr-phone" href="tel:{TEL}">{PHONE}</a>
+      {if_phone(f'<a class="hdr-phone" href="tel:{TEL}">{PHONE}</a>')}
       <a class="btn" href="#quote">Free quote</a>
     </div>
   </div>
@@ -106,12 +112,12 @@ def quote(selected, heading="Tell us about your space.", sub="Send us a few deta
           <p>{sub}</p>
         </div>
         <div class="contact-lines">
-          <div><span class="lbl">Call or text</span><a class="val" href="tel:{TEL}">{PHONE}</a></div>
+          {if_phone(f'<div><span class="lbl">Call or text</span><a class="val" href="tel:{TEL}">{PHONE}</a></div>')}
           <div><span class="lbl">Email</span><a class="val" href="mailto:{EMAIL}">{EMAIL}</a></div>
           <div><span class="lbl">Hours</span><span class="val">{HOURS}</span></div>
         </div>
       </div>
-      <form class="qf" id="quoteForm" action="https://formsubmit.co/ajax/df6a463ea6c9df99f22c3e2976bc7e55" method="POST" novalidate>
+      <form class="qf" id="quoteForm" action="https://formsubmit.co/ajax/df6a463ea6c9df99f22c3e2976bc7e55" method="POST" data-fallback="{if_phone(f'Please call or text us at {PHONE}, or email {EMAIL}.', f'Please email us at {EMAIL}.')}" novalidate>
         <input type="hidden" name="_subject" value="New quote request from brilioclean.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
@@ -127,7 +133,7 @@ def quote(selected, heading="Tell us about your space.", sub="Send us a few deta
         </div>
         <div class="field full"><label for="q-details">Details <span class="req">(size of space, how often, preferred dates)</span></label><textarea id="q-details" name="details"></textarea></div>
         <button class="btn sky" type="submit">Request my quote</button>
-        <p class="ok" id="quoteOk" role="status" hidden>Thanks! We got your request and will be in touch soon. Need us sooner? Call or text {PHONE}.</p>
+        <p class="ok" id="quoteOk" role="status" hidden>Thanks! We got your request and will be in touch soon. Need us sooner? {if_phone(f"Call or text {PHONE}.", f"Email {EMAIL}.")}</p>
         <p class="err" id="quoteErr" role="alert" hidden></p>
       </form>
     </div>
@@ -140,7 +146,7 @@ def footer():
   <div class="wrap">
     <a class="logo logo-sm" href="/" aria-label="Brilio home">{logo_svg()}</a>
     <div class="contact">
-      <a href="tel:{TEL}">{PHONE}</a>
+      {if_phone(f'<a href="tel:{TEL}">{PHONE}</a>')}
       <a href="mailto:{EMAIL}">{EMAIL}</a>
       <span>{HOURS}</span>
     </div>
@@ -228,11 +234,11 @@ TRUST = f'''<div class="trust">
         </div>'''
 
 LD = {
+    **({"telephone": TEL} if SHOW_PHONE else {}),
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Brilio",
     "url": SITE,
-    "telephone": TEL,
     "email": EMAIL,
     "description": "Residential, short-term rental, commercial, post-construction, and floor care cleaning.",
     "address": {"@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL", "addressCountry": "US"},
@@ -260,7 +266,7 @@ def home():
         <p class="lede">Brilio cleans homes, short-term rentals, offices, new construction, and commercial floors. Based in Chicago and serving Illinois, Indiana, and Wisconsin.</p>
         <div class="ctas">
           <a class="btn sky" href="#quote">Get a free quote</a>
-          <a class="btn ghost" href="tel:{TEL}">Call {PHONE}</a>
+          {if_phone(f'<a class="btn ghost" href="tel:{TEL}">Call {PHONE}</a>', '<a class="btn ghost" href="#services">See our services</a>')}
         </div>
         {TRUST}
       </div>
@@ -361,7 +367,7 @@ def home():
           <div class="state"><b>Indiana</b><span>All services</span></div>
           <div class="state"><b>Wisconsin</b><span>All services</span></div>
         </div>
-        <p class="areas-note">Not sure if we cover your address? Call or text <a href="tel:{TEL}">{PHONE}</a> and we’ll tell you right away.</p>
+        <p class="areas-note">Not sure if we cover your address? {if_phone(f'Call or text <a href="tel:{TEL}">{PHONE}</a>', f'Email <a href="mailto:{EMAIL}">{EMAIL}</a>')} and we’ll tell you right away.</p>
       </div>
     </div>
   </section>
@@ -381,7 +387,7 @@ def service_page(slug, title, desc, eyebrow, h1, lede, body, faqs):
       <p class="lede">{lede}</p>
       <div class="ctas">
         <a class="btn sky" href="#quote">Get a free quote</a>
-        <a class="btn ghost" href="tel:{TEL}">Call {PHONE}</a>
+        {if_phone(f'<a class="btn ghost" href="tel:{TEL}">Call {PHONE}</a>', f'<a class="btn ghost" href="mailto:{EMAIL}">Email us</a>')}
       </div>
       {TRUST}
     </div>
@@ -471,7 +477,7 @@ PAGES = {
       </div>'''),
         [
             ("Can you do same-day turnovers?", "Yes. We work from 6 AM to midnight every day, so we can fit a turnover between an 11 AM checkout and a 4 PM check-in, including weekends and holidays."),
-            ("How do you know when to clean?", "Share your booking calendar with us and we schedule a turnover after every checkout. We also take one-off and last-minute requests by phone or text."),
+            ("How do you know when to clean?", "Share your booking calendar with us and we schedule a turnover after every checkout. We also take one-off and last-minute requests " + if_phone("by phone, text, or email.", "by email or through the quote form.")),
             ("Do you restock supplies?", "Yes. We restock toiletries, paper goods, and kitchen basics from the supplies you keep at the property, and let you know before anything runs out."),
             ("Will I know when the unit is ready?", "Yes. After each turnover we send you photos of the finished unit. If anything is damaged, from linens and furniture to windows, doors, handles, bathrooms, or walls, we send you photos of that too."),
             ("What happens if a guest leaves something behind?", "We log it, send you a photo, and keep it safe at the property or with us until you tell us what to do with it."),

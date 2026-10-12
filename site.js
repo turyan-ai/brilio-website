@@ -35,7 +35,7 @@
       })
       .catch(function (e) {
         console.warn('Quote form failed:', e.message);
-        err.textContent = 'Your request didn’t go through. Please call or text us at (773) 766-5661, or email info@brilioclean.com.';
+        err.textContent = 'Your request didn’t go through. ' + form.dataset.fallback;
         err.hidden = false;
       })
       .finally(function () {
