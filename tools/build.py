@@ -19,9 +19,10 @@ SERVICES = [
     ("post-construction-cleaning", "Post-construction cleaning"),
     ("move-out-cleaning", "Move-in / move-out cleaning"),
     ("deep-cleaning", "Deep cleaning"),
-    ("window-cleaning", "Window cleaning"),
-    ("carpet-cleaning", "Carpet &amp; upholstery cleaning"),
 ]
+
+PRIMETIME = "Primetime Window Cleaners"
+PRIMETIME_QUOTE = "https://primetimewindowcleaning.com/contact/"
 
 STAR = '<svg class="star" aria-hidden="true"><use href="#star"/></svg>'
 
@@ -154,7 +155,7 @@ def faq(items):
 
 def others(current):
     links = "".join(
-        f'<a class="btn ghost" href="/{slug}">{label}</a>' for slug, label in SERVICES if slug != current
+        f'<a class="btn ghost" href="/{slug}">{label}</a>' for slug, label in SERVICES + [("window-cleaning", "Window cleaning")] if slug != current
     )
     return f'''  <section class="block" style="padding-top:0">
     <div class="wrap">
@@ -294,8 +295,7 @@ def home():
         <a class="mini" href="/post-construction-cleaning"><h3>Post-construction cleaning</h3><p>Dust and debris removed after a renovation or new build, so the space is ready to use.</p></a>
         <a class="mini" href="/move-out-cleaning"><h3>Move-in / move-out cleaning</h3><p>Empty homes and apartments cleaned top to bottom for tenants, landlords, and sellers.</p></a>
         <a class="mini" href="/deep-cleaning"><h3>Deep cleaning</h3><p>Detailed top-to-bottom cleaning for a first visit, a new season, or a fresh start.</p></a>
-        <a class="mini" href="/window-cleaning"><h3>Window cleaning</h3><p>Glass, frames, sills, and tracks for homes, offices, and storefronts.</p></a>
-        <a class="mini" href="/carpet-cleaning"><h3>Carpet &amp; upholstery cleaning</h3><p>Carpets, rugs, and furniture deep-cleaned to lift dirt, stains, and odors.</p></a>
+        <a class="mini" href="/window-cleaning"><h3>Window cleaning</h3><p>Provided by our sister company, Primetime Window Cleaners.</p></a>
       </div>
     </div>
   </section>
@@ -431,7 +431,7 @@ PAGES = {
             ("Linen &amp; laundry", ["Bedding and towels washed, dried, and folded", "Linen swaps with your spare sets", "Stained or damaged linens flagged"]),
             ("Restocking &amp; supplies", ["Guest essentials restocked every visit", "Low-supply alerts before you run out", "Supply runs on request"]),
             ("Inspections &amp; reporting", ["Pre-arrival checks before guests arrive", "Damage, maintenance, and missing-item reports", "Lost-and-found items logged and held"]),
-            ("Deep cleans", ["Periodic deep cleans between bookings", "Inside appliances, baseboards, and vents", "Carpet, upholstery, and window add-ons"]),
+            ("Deep cleans", ["Periodic deep cleans between bookings", "Inside appliances, baseboards, and vents", "Window cleaning through our sister company"]),
             ("Mid-stay &amp; new listings", ["Mid-stay cleans for longer bookings", "Launch cleans for new listings", "Photo-ready staging before listing photos"]),
         ])) + section("How it works", "Set up once, cleaned after every stay", "", '''<ol class="steps steps-light">
         <li><span class="n">Step 1</span><h3>Walkthrough</h3><p>We visit the property and build a checklist for your unit and your standards.</p></li>
@@ -548,49 +548,32 @@ PAGES = {
             ("What if I’m not happy with something?", "Tell us within 24 hours and we’ll come back to re-clean it at no charge."),
         ],
     ),
-    "window-cleaning": service_page(
-        "window-cleaning",
-        "Window Cleaning in Chicago | Brilio",
-        "Residential and commercial window cleaning in Chicago and across Illinois, Indiana, and Wisconsin. Glass, frames, sills, tracks, and storefronts.",
-        "Window cleaning",
-        "Window cleaning, inside and out.",
-        "Streak-free windows for homes, offices, and storefronts. Book a one-time cleaning or add windows to your regular schedule.",
-        section("What’s included", "More than just the glass", "", checklist([
-            ("Glass", ["Interior glass cleaned streak-free", "Exterior glass we can safely reach", "Glass doors and partitions"]),
-            ("Frames &amp; tracks", ["Frames and sills wiped", "Tracks vacuumed and cleaned", "Screens dusted and wiped"]),
-            ("Storefronts &amp; offices", ["Storefront glass and entry doors", "Regular schedules available", "Early-morning or evening visits"]),
-        ])),
-        [
-            ("Do you clean high-rise windows?", "We clean windows we can reach safely from inside or from the ground. For high-rise exteriors that need lifts or rope access, ask us and we’ll tell you what we can do."),
-            ("Can you clean storefront windows regularly?", "Yes. We can set up a weekly, biweekly, or monthly visit, before you open or after you close."),
-            ("Can I add windows to my regular cleaning?", "Yes. Just tell us when you book or call."),
-        ],
-    ),
-    "carpet-cleaning": service_page(
-        "carpet-cleaning",
-        "Carpet &amp; Upholstery Cleaning in Chicago | Brilio",
-        "Carpet, rug, and upholstery cleaning for homes, rentals, and offices in Chicago and across Illinois, Indiana, and Wisconsin.",
-        "Carpet &amp; upholstery cleaning",
-        "Carpet and upholstery cleaning.",
-        "We deep-clean carpets, rugs, and upholstered furniture to lift the dirt, stains, and odors that vacuuming leaves behind. For homes, short-term rentals, and offices.",
-        section("What’s included", "Carpets, rugs, and furniture", "", checklist([
-            ("Carpets &amp; rugs", ["Stains and high-traffic areas pre-treated", "Deep cleaning to pull out embedded dirt", "Odor treatment on request"]),
-            ("Upholstery", ["Sofas and sectionals", "Dining and office chairs", "Ottomans and headboards"]),
-            ("Rentals &amp; offices", ["Carpet refresh between guests or tenants", "Office carpet and common areas", "After-hours scheduling"]),
-        ])),
-        [
-            ("How long does carpet take to dry?", "Usually several hours, depending on the carpet and the airflow in the room. Opening windows or running fans speeds it up."),
-            ("Can you remove every stain?", "We remove most everyday stains. Some old or set-in stains, like bleach or dye, can’t be fully removed, and we’ll tell you up front if we think that’s the case."),
-            ("Can you combine this with another cleaning?", "Yes. Carpet cleaning pairs well with a deep clean, a move-out clean, or a rental turnover."),
-        ],
-    ),
+    "window-cleaning": head(
+        "Window Cleaning | Primetime Window Cleaners, a Brilio Company",
+        "Window cleaning for Brilio clients is provided by our sister company, Primetime Window Cleaners. Request a window cleaning quote from Primetime.",
+        "/window-cleaning",
+    ) + header() + f'''
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> / Window cleaning</p>
+      <h1>Window cleaning by our sister company.</h1>
+      <p class="lede">Window cleaning is handled by <b>{PRIMETIME}</b>, Brilio’s sister company. Request your window cleaning quote directly from them, and they’ll take it from there.</p>
+      <div class="ctas">
+        <a class="btn sky" href="{PRIMETIME_QUOTE}" target="_blank" rel="noopener">Get a window cleaning quote from Primetime</a>
+      </div>
+    </div>
+  </section>
+{others("window-cleaning")}
+</main>
+''' + footer(),
 }
 
 open(os.path.join(OUT, "index.html"), "w").write(home())
 for slug, html in PAGES.items():
     open(os.path.join(OUT, slug + ".html"), "w").write(html)
 
-urls = ["/"] + ["/" + s for s, _ in SERVICES]
+urls = ["/"] + ["/" + s for s, _ in SERVICES] + ["/window-cleaning"]
 open(os.path.join(OUT, "sitemap.xml"), "w").write(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + "".join(f"  <url><loc>{SITE}{u}</loc></url>\n" for u in urls) + "</urlset>\n"

@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/airbnb-cleaning", "destination": "/short-term-rental-cleaning", "permanent": true }
+    { "source": "/airbnb-cleaning", "destination": "/short-term-rental-cleaning", "permanent": true },
+    { "source": "/carpet-cleaning", "destination": "/#more-services", "permanent": true }
   ]
 }
