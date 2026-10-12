@@ -430,9 +430,9 @@ PAGES = {
   </section>
 ''' + section("STR services", "Everything your rental needs between guests", "Book turnovers on their own, or let us take care of the whole cleaning side of your listing.", checklist([
             ("Same-day turnovers", ["Cleaning between checkout and check-in", "Last-minute and back-to-back bookings", "Weekends and holidays included"]),
-            ("Linen rental &amp; laundry", ["Rent our linens: fresh sets brought to every turnover", "Or we wash, dry, and fold your own linens", "Stained or damaged linens flagged", '<a href="/linen-rental-laundry">See linen rental &amp; laundry</a>']),
+            ("Linen rental &amp; laundry", ["Rent our linens: we pick up, drop off, and change them", "Mattress protectors available", "Or we wash, dry, and fold your own linens", '<a href="/linen-rental-laundry">See linen rental &amp; laundry</a>']),
             ("Restocking &amp; supplies", ["Guest essentials restocked every visit", "Low-supply alerts before you run out", "Supply runs on request"]),
-            ("Inspections &amp; reporting", ["Pre-arrival checks before guests arrive", "Damage, maintenance, and missing-item reports", "Lost-and-found items logged and held"]),
+            ("Inspections &amp; damage reports", ["Pre-arrival checks before guests arrive", "Photos of damaged items and furniture", "Photos of damage to windows, doors, handles, bathrooms, and walls", "Missing items and lost-and-found logged"]),
             ("Deep cleans", ["Periodic deep cleans between bookings", "Inside appliances, baseboards, and vents", "Window cleaning through our sister company"]),
             ("Mid-stay &amp; new listings", ["Mid-stay cleans for longer bookings", "Launch cleans for new listings", "Photo-ready staging before listing photos"]),
         ])) + section("How it works", "Set up once, cleaned after every stay", "", '''<ol class="steps steps-light">
@@ -449,7 +449,7 @@ PAGES = {
             ("Can you do same-day turnovers?", "Yes. We work from 6 AM to midnight every day, so we can fit a turnover between an 11 AM checkout and a 4 PM check-in, including weekends and holidays."),
             ("How do you know when to clean?", "Share your booking calendar with us and we schedule a turnover after every checkout. We also take one-off and last-minute requests by phone or text."),
             ("Do you restock supplies?", "Yes. We restock toiletries, paper goods, and kitchen basics from the supplies you keep at the property, and let you know before anything runs out."),
-            ("Will I know when the unit is ready?", "Yes. After each turnover we send you photos of the finished unit, plus notes on any damage, maintenance issues, or missing items."),
+            ("Will I know when the unit is ready?", "Yes. After each turnover we send you photos of the finished unit. If anything is damaged, from linens and furniture to windows, doors, handles, bathrooms, or walls, we send you photos of that too."),
             ("What happens if a guest leaves something behind?", "We log it, send you a photo, and keep it safe at the property or with us until you tell us what to do with it."),
             ("Do you work with property managers who have several units?", "Yes. Tell us how many units you manage and how often they turn over, and we’ll set up a schedule and a checklist for each property."),
         ],
@@ -556,25 +556,27 @@ PAGES = {
         "Linen rental and laundry service for short-term rental hosts and property managers in Chicago and across Illinois, Indiana, and Wisconsin. Fresh sheets and towels for every stay, or your own linens washed and folded.",
         "Linen rental &amp; laundry",
         "Linen rental and laundry for short-term rentals.",
-        "Skip buying, storing, and washing linens. Rent fresh sheets and towels from us for every stay, or send us your own linens to wash and fold. Pair it with our turnover cleaning and the beds are made before the next guest arrives.",
-        section("Two ways to handle linens", "Rent ours or we wash yours", "", checklist([
-            ("Linen rental", ["We supply the sheets, pillowcases, duvet covers, and towels", "A fresh set for every turnover", "Used sets taken away, washed, and inspected", "Stained or worn items replaced by us"]),
+        "Skip buying, storing, and washing linens. When you rent linens from us, we handle everything: pickup, laundry, drop-off, and changing the beds. You don’t lift a finger. Prefer your own linens? We’ll wash and fold those too.",
+        section("What you get", "Rent ours or we wash yours", "", checklist([
+            ("Linen rental, fully hands-off", ["Sheets, pillowcases, duvet covers, and towels supplied by us", "Mattress protectors available", "We pick up, drop off, and change the linens", "Stained or worn items replaced by us"]),
             ("Laundry service", ["Your own bedding and towels washed, dried, and folded", "Stains pre-treated", "Sorted and packed by unit", "Damaged items flagged before they reach a guest"]),
-            ("With turnover cleaning", ["Beds stripped and remade with fresh linens", "Towels staged for the next guest", "Linen counts included in your turnover report"]),
+            ("Damage checks every visit", ["Unit inspected each time we change linens", "Photos of damaged linens and furniture", "Photos of damage to windows, doors, handles, bathrooms, and walls", "Sent to you right away"]),
         ])) + section("How linen rental works", "Fresh linens, every stay", "", '''<ol class="steps steps-light">
         <li><span class="n">Step 1</span><h3>Tell us your units</h3><p>Share the bed sizes and bathrooms at each property.</p></li>
         <li><span class="n">Step 2</span><h3>We set your sets</h3><p>We work out how many linen sets each unit needs for your booking pace.</p></li>
-        <li><span class="n">Step 3</span><h3>Fresh sets each stay</h3><p>Clean linens arrive with every turnover, and used ones leave with us.</p></li>
-        <li><span class="n">Step 4</span><h3>Washed and inspected</h3><p>Every piece is washed, checked, and replaced if it’s stained or worn.</p></li>
+        <li><span class="n">Step 3</span><h3>We change the beds</h3><p>We bring fresh linens, make the beds, stage the towels, and take the used set with us.</p></li>
+        <li><span class="n">Step 4</span><h3>Report and wash</h3><p>You get photos of any damage in the unit. Every linen is washed, checked, and replaced if it’s stained or worn.</p></li>
       </ol>''') + section("Why hosts rent linens", "Less to buy, store, and wash", "", '''<div class="states">
         <div class="state"><b>No upfront cost</b><span>No buying sets for every bed in every unit</span></div>
-        <div class="state"><b>No storage or laundry</b><span>No linen closets to stock or machines running between guests</span></div>
+        <div class="state"><b>Nothing for you to do</b><span>We pick up, wash, drop off, and change the linens</span></div>
+        <div class="state"><b>Eyes on your unit</b><span>Photos of any damage after every visit</span></div>
         <div class="state"><b>Consistent for guests</b><span>Matching, inspected linens in every unit, every stay</span></div>
       </div>'''),
         [
             ("Can I use linen rental or laundry without your cleaning service?", "Yes. You can use linen rental or laundry on its own, or combine it with our turnover cleaning so the beds are made for you."),
-            ("What’s included in a linen set?", "Sheets, pillowcases, duvet covers, and towels sized for your unit. We put together the right set for each property when you sign up."),
-            ("What if a guest stains or damages the linens?", "We flag it in your report with a photo. We’ll go over how damaged linens are handled when you sign up."),
+            ("What’s included in a linen set?", "Sheets, pillowcases, duvet covers, and towels sized for your unit. Mattress protectors are available too. We put together the right set for each property when you sign up."),
+            ("Do I need to do anything when I rent linens?", "No. We pick up the used linens, wash them, drop off fresh sets, and change the beds ourselves. You don’t have to handle any laundry."),
+            ("What if something in the unit is damaged?", "We check the unit every time we’re there. If we find damaged linens, furniture, or damage to the unit itself, like windows, doors, handles, bathrooms, or walls, we send you photos right away."),
             ("Do you work with property managers?", "Yes. We set up linen sets and laundry schedules across all the units you manage."),
             ("How is it priced?", "It depends on the number of units, bed sizes, and how often they turn over. Request a quote and we’ll send you pricing."),
         ],
