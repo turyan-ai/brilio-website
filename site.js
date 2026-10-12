@@ -46,3 +46,23 @@
       });
   });
 })();
+
+// Email links: also copy the address, since many devices have no email app set up
+// and the link then does nothing. The mail app still opens where there is one.
+(function () {
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var address = link.getAttribute('href').replace('mailto:', '').split('?')[0];
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(address).then(function () {
+        if (link.dataset.copied) return;
+        link.dataset.copied = link.textContent;
+        link.textContent = 'Email address copied';
+        setTimeout(function () {
+          link.textContent = link.dataset.copied;
+          delete link.dataset.copied;
+        }, 2500);
+      }).catch(function () {});
+    });
+  });
+})();
