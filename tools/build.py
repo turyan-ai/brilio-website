@@ -210,6 +210,17 @@ TICKET = '''      <article class="ticket" aria-label="Example short-term rental 
         <p class="note">Example schedule</p>
       </article>'''
 
+STATS = '''  <section class="stats-band" aria-label="Brilio by the numbers">
+    <div class="wrap stats">
+      <div class="stat"><b>72,000+</b><span>short-term rental and residential cleanings completed</span></div>
+      <div class="stat"><b>7 days</b><span>a week, from 6 AM to midnight</span></div>
+      <div class="stat"><b>3 states</b><span>served: Illinois, Indiana, and Wisconsin</span></div>
+      <div class="stat"><b>24-hour</b><span>re-clean guarantee on every visit</span></div>
+    </div>
+  </section>
+'''
+STATS_PAGES = ("short-term-rental-cleaning", "residential-cleaning", "linen-rental-laundry")
+
 TRUST = f'''<div class="trust">
           <span>{STAR}Insured &amp; bonded</span>
           <span>{STAR}24-hour re-clean guarantee</span>
@@ -259,7 +270,8 @@ def home():
     </div>
   </section>
 
-  <section class="block" id="services" style="padding-top:24px">
+{STATS}
+  <section class="block" id="services">
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">What we clean</p>
@@ -375,7 +387,7 @@ def service_page(slug, title, desc, eyebrow, h1, lede, body, faqs):
       {TRUST}
     </div>
   </section>
-{body}
+{STATS if slug in STATS_PAGES else ""}{body}
   <section class="block">
     <div class="wrap">
       <div class="head"><p class="eyebrow">Questions</p><h2>Frequently asked</h2></div>
@@ -427,7 +439,7 @@ PAGES = {
         "Short-term and vacation rental cleaning in Chicago and across Illinois, Indiana, and Wisconsin: same-day turnovers, linen and laundry, restocking, inspections, and photo reports for hosts and property managers.",
         "Short-term rental cleaning",
         "Short-term rental cleaning, from checkout to five stars.",
-        "We handle the cleaning side of your short-term rental: turnovers between guests, linens, restocking, inspections, and a photo report after every visit. We work every day from 6 AM to midnight, so tight same-day turnovers and last-minute bookings are covered.",
+        "With more than 72,000 short-term rental and residential cleanings behind us, we know what a five-star stay takes. We handle the cleaning side of your short-term rental: turnovers between guests, linens, restocking, inspections, and a photo report after every visit. We work every day from 6 AM to midnight, so tight same-day turnovers and last-minute bookings are covered.",
         f'''  <section class="block" style="padding-top:8px">
     <div class="wrap split" style="align-items:start">
       <div>
