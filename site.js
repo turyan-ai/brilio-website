@@ -30,6 +30,8 @@
         });
       })
       .then(function () {
+        // Quote request conversion for Google Analytics / Google Ads (only when GA is configured)
+        if (window.gtag) window.gtag('event', 'generate_lead', { service: form.service.value });
         form.reset();
         ok.hidden = false;
       })

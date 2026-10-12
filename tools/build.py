@@ -6,6 +6,9 @@ import json, sys, os, re
 
 OUT = sys.argv[1]
 SITE = "https://www.brilioclean.com"
+# Google Analytics 4 Measurement ID (starts with "G-"). Empty = Google Analytics off.
+GA_ID = ""
+
 # Phone is hidden until the business line is active. Set SHOW_PHONE = True to show it everywhere again.
 SHOW_PHONE = False
 PHONE = "(773) 766-5661"
@@ -26,6 +29,14 @@ SERVICES = [
 
 PRIMETIME = "Primetime Window Cleaners"
 PRIMETIME_QUOTE = "https://primetimewindowcleaning.com/contact/"
+
+def analytics():
+    if not GA_ID:
+        return ""
+    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>\n'
+            "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}"
+            f"gtag('js',new Date());gtag('config','{GA_ID}');</script>\n")
+
 
 def if_phone(with_phone, without=""):
     return with_phone if SHOW_PHONE else without
@@ -68,7 +79,8 @@ def head(title, desc, path, extra=""):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="/styles.css">
-{extra}</head>
+<script defer src="/_vercel/insights/script.js"></script>
+{analytics()}{extra}</head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="star" viewBox="-10 -10 20 20"><path d="M0,-10 C1.2,-3 3,-1.2 10,0 C3,1.2 1.2,3 0,10 C-1.2,3 -3,1.2 -10,0 C-3,-1.2 -1.2,-3 0,-10Z"/></symbol>
