@@ -208,7 +208,7 @@ footer.site a:hover { color: var(--ink); }
 
 /* more services */
 .mini-services { display: flex; flex-wrap: wrap; gap: 14px; }
-.mini-services .mini { flex: 1 1 240px; min-width: 0; }
+.mini-services .mini { flex: 1 1 190px; min-width: 0; }
 .mini { display: grid; gap: 6px; align-content: start; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; transition: border-color .2s ease, transform .2s ease; }
 .mini:hover { border-color: var(--sky); transform: translateY(-2px); }
 .mini h3 { font-size: 1.1rem; font-weight: 700; }

@@ -19,6 +19,7 @@ SERVICES = [
     ("post-construction-cleaning", "Post-construction cleaning"),
     ("move-out-cleaning", "Move-in / move-out cleaning"),
     ("deep-cleaning", "Deep cleaning"),
+    ("linen-rental-laundry", "Linen rental &amp; laundry (STR)"),
 ]
 
 PRIMETIME = "Primetime Window Cleaners"
@@ -264,7 +265,7 @@ def home():
           <p class="tag">Hosts &amp; property managers</p>
           <h3>Short-term rental cleaning</h3>
           <p>Everything an STR needs between guests: turnovers, linens, restocking, inspections, and photo reports.</p>
-          <ul><li>Same-day guest turnovers</li><li>Linens, laundry, and restocking</li><li>Inspections and damage reporting</li></ul>
+          <ul><li>Same-day guest turnovers</li><li>Linen rental, laundry, and restocking</li><li>Inspections and damage reporting</li></ul>
           <a class="more" href="/short-term-rental-cleaning">STR cleaning services</a>
         </article>
         <article class="svc">
@@ -289,11 +290,12 @@ def home():
     <div class="wrap">
       <div class="head" style="margin-bottom:24px">
         <p class="eyebrow">More services</p>
-        <h2>Specialty and one-time cleaning</h2>
+        <h2>Specialty services</h2>
       </div>
       <div class="mini-services">
         <a class="mini" href="/post-construction-cleaning"><h3>Post-construction cleaning</h3><p>Dust and debris removed after a renovation or new build, so the space is ready to use.</p></a>
         <a class="mini" href="/move-out-cleaning"><h3>Move-in / move-out cleaning</h3><p>Empty homes and apartments cleaned top to bottom for tenants, landlords, and sellers.</p></a>
+        <a class="mini" href="/linen-rental-laundry"><h3>Linen rental &amp; laundry</h3><p>Fresh sheets and towels for every stay, or your own linens washed and folded. For short-term rentals.</p></a>
         <a class="mini" href="/deep-cleaning"><h3>Deep cleaning</h3><p>Detailed top-to-bottom cleaning for a first visit, a new season, or a fresh start.</p></a>
         <a class="mini" href="/window-cleaning"><h3>Window cleaning</h3><p>Provided by our sister company, Primetime Window Cleaners.</p></a>
       </div>
@@ -428,7 +430,7 @@ PAGES = {
   </section>
 ''' + section("STR services", "Everything your rental needs between guests", "Book turnovers on their own, or let us take care of the whole cleaning side of your listing.", checklist([
             ("Same-day turnovers", ["Cleaning between checkout and check-in", "Last-minute and back-to-back bookings", "Weekends and holidays included"]),
-            ("Linen &amp; laundry", ["Bedding and towels washed, dried, and folded", "Linen swaps with your spare sets", "Stained or damaged linens flagged"]),
+            ("Linen rental &amp; laundry", ["Rent our linens: fresh sets brought to every turnover", "Or we wash, dry, and fold your own linens", "Stained or damaged linens flagged", '<a href="/linen-rental-laundry">See linen rental &amp; laundry</a>']),
             ("Restocking &amp; supplies", ["Guest essentials restocked every visit", "Low-supply alerts before you run out", "Supply runs on request"]),
             ("Inspections &amp; reporting", ["Pre-arrival checks before guests arrive", "Damage, maintenance, and missing-item reports", "Lost-and-found items logged and held"]),
             ("Deep cleans", ["Periodic deep cleans between bookings", "Inside appliances, baseboards, and vents", "Window cleaning through our sister company"]),
@@ -546,6 +548,35 @@ PAGES = {
             ("How often do I need a deep clean?", "Many homes get one every three to six months, with standard cleans in between. We also recommend one for your first visit with us."),
             ("Do I need to be home?", "No. Many clients leave a key or door code. Tell us what works for you when you book."),
             ("What if I’m not happy with something?", "Tell us within 24 hours and we’ll come back to re-clean it at no charge."),
+        ],
+    ),
+    "linen-rental-laundry": service_page(
+        "linen-rental-laundry",
+        "Linen Rental &amp; Laundry for Short-Term Rentals in Chicago | Brilio",
+        "Linen rental and laundry service for short-term rental hosts and property managers in Chicago and across Illinois, Indiana, and Wisconsin. Fresh sheets and towels for every stay, or your own linens washed and folded.",
+        "Linen rental &amp; laundry",
+        "Linen rental and laundry for short-term rentals.",
+        "Skip buying, storing, and washing linens. Rent fresh sheets and towels from us for every stay, or send us your own linens to wash and fold. Pair it with our turnover cleaning and the beds are made before the next guest arrives.",
+        section("Two ways to handle linens", "Rent ours or we wash yours", "", checklist([
+            ("Linen rental", ["We supply the sheets, pillowcases, duvet covers, and towels", "A fresh set for every turnover", "Used sets taken away, washed, and inspected", "Stained or worn items replaced by us"]),
+            ("Laundry service", ["Your own bedding and towels washed, dried, and folded", "Stains pre-treated", "Sorted and packed by unit", "Damaged items flagged before they reach a guest"]),
+            ("With turnover cleaning", ["Beds stripped and remade with fresh linens", "Towels staged for the next guest", "Linen counts included in your turnover report"]),
+        ])) + section("How linen rental works", "Fresh linens, every stay", "", '''<ol class="steps steps-light">
+        <li><span class="n">Step 1</span><h3>Tell us your units</h3><p>Share the bed sizes and bathrooms at each property.</p></li>
+        <li><span class="n">Step 2</span><h3>We set your sets</h3><p>We work out how many linen sets each unit needs for your booking pace.</p></li>
+        <li><span class="n">Step 3</span><h3>Fresh sets each stay</h3><p>Clean linens arrive with every turnover, and used ones leave with us.</p></li>
+        <li><span class="n">Step 4</span><h3>Washed and inspected</h3><p>Every piece is washed, checked, and replaced if it’s stained or worn.</p></li>
+      </ol>''') + section("Why hosts rent linens", "Less to buy, store, and wash", "", '''<div class="states">
+        <div class="state"><b>No upfront cost</b><span>No buying sets for every bed in every unit</span></div>
+        <div class="state"><b>No storage or laundry</b><span>No linen closets to stock or machines running between guests</span></div>
+        <div class="state"><b>Consistent for guests</b><span>Matching, inspected linens in every unit, every stay</span></div>
+      </div>'''),
+        [
+            ("Can I use linen rental or laundry without your cleaning service?", "Yes. You can use linen rental or laundry on its own, or combine it with our turnover cleaning so the beds are made for you."),
+            ("What’s included in a linen set?", "Sheets, pillowcases, duvet covers, and towels sized for your unit. We put together the right set for each property when you sign up."),
+            ("What if a guest stains or damages the linens?", "We flag it in your report with a photo. We’ll go over how damaged linens are handled when you sign up."),
+            ("Do you work with property managers?", "Yes. We set up linen sets and laundry schedules across all the units you manage."),
+            ("How is it priced?", "It depends on the number of units, bed sizes, and how often they turn over. Request a quote and we’ll send you pricing."),
         ],
     ),
     "window-cleaning": head(
