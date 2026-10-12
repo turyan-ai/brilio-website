@@ -1,0 +1,40 @@
+// Quote form: sends the request to info@brilioclean.com through FormSubmit.
+(function () {
+  var form = document.getElementById('quoteForm');
+  if (!form) return;
+  var ok = document.getElementById('quoteOk');
+  var err = document.getElementById('quoteErr');
+  var btn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ok.hidden = true;
+    err.hidden = true;
+
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim();
+    var email = form.email.value.trim();
+    if (!name || (!phone && !email)) {
+      err.textContent = 'Please add your name and a phone number or email so we can reach you.';
+      err.hidden = false;
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
+      .then(function (r) { return r.json().then(function (d) { if (!r.ok || String(d.success) !== 'true') throw new Error(); }); })
+      .then(function () {
+        form.reset();
+        ok.hidden = false;
+      })
+      .catch(function () {
+        err.textContent = 'Your request didn’t go through. Please call or text us at (773) 766-5661, or email info@brilioclean.com.';
+        err.hidden = false;
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = 'Request my quote';
+      });
+  });
+})();

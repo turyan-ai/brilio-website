@@ -4,202 +4,38 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brilio | House, Airbnb, Office &amp; Floor Cleaning in Chicago</title>
-<meta name="description" content="Brilio is a Chicago cleaning company offering residential cleaning, Airbnb and short-term rental turnovers, office and commercial cleaning, and floor stripping, waxing, and buffing. Get a free quote.">
+<meta name="description" content="Brilio is a Chicago cleaning company offering residential cleaning, Airbnb and short-term rental turnovers, office and commercial cleaning, and floor stripping, waxing, and buffing. Insured and bonded. Free quotes.">
+<link rel="canonical" href="https://brilioclean.com/">
 <meta name="theme-color" content="#0d2233">
-<meta property="og:title" content="Brilio | Cleaning Services in Chicago">
-<meta property="og:description" content="Residential, Airbnb, commercial, and floor care cleaning across Chicago. Get a free quote.">
+<meta property="og:title" content="Brilio | House, Airbnb, Office &amp; Floor Cleaning in Chicago">
+<meta property="og:description" content="Brilio is a Chicago cleaning company offering residential cleaning, Airbnb and short-term rental turnovers, office and commercial cleaning, and floor stripping, waxing, and buffing. Insured and bonded. Free quotes.">
+<meta property="og:url" content="https://brilioclean.com/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Brilio">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
-<style>
-/* Layout: lake-blue + Chicago-star sparkle; full-bleed bands, left-aligned editorial headings, cards only where they're real objects (services, quote form) */
-:root {
-  --bg: #f6f9fb;
-  --surface: #ffffff;
-  --ink: #0d2233;
-  --muted: #4d6475;
-  --line: #d6e2ea;
-  --sky: #41b6e6;        /* Chicago flag blue */
-  --sky-soft: #e3f4fb;
-  --star: #d7192e;       /* Chicago flag star red, used sparingly */
-  --band: #0d2233;
-  --band-fg: #eaf6fc;
-  --band-muted: #9cb8ca;
-  --btn-fg: #ffffff;
-  --display: "Plus Jakarta Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --body: "Plus Jakarta Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --radius: 14px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0a1924; --surface: #10242f; --ink: #e6f2f9; --muted: #9db4c3; --line: #21394a;
-    --sky: #5cc6ee; --sky-soft: #123446; --star: #ff4d5e; --band: #061019; --band-fg: #e6f2f9;
-    --band-muted: #8fabbd; --btn-fg: #061019; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0a1924; --surface: #10242f; --ink: #e6f2f9; --muted: #9db4c3; --line: #21394a;
-  --sky: #5cc6ee; --sky-soft: #123446; --star: #ff4d5e; --band: #061019; --band-fg: #e6f2f9;
-  --band-muted: #8fabbd; --btn-fg: #061019; color-scheme: dark;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-body { margin: 0; }
-img { max-width: 100%; }
-[hidden] { display: none !important; }
-body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1rem; line-height: 1.6; }
-.wrap { max-width: 1120px; margin-inline: auto; padding-inline: 20px; }
-h1, h2, h3 { font-family: var(--display); line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
-p { margin: 0; }
-a { color: inherit; }
-:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
-.eyebrow { font-family: var(--mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.star { width: 1em; height: 1em; fill: var(--star); flex: none; }
-
-/* draft banner */
-.draft { background: var(--sky-soft); border-bottom: 1px solid var(--line); font-size: .85rem; color: var(--muted); }
-.draft .wrap { padding-block: 8px; }
-.draft strong { color: var(--ink); }
-.ph { background: var(--sky-soft); border-radius: 4px; padding: 0 4px; font-family: var(--mono); font-size: .9em; color: var(--ink); }
-
-/* header */
-header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.logo { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 800; font-size: 1.5rem; text-decoration: none; letter-spacing: -0.03em; }
-.logo .star { width: .8em; height: .8em; }
-nav.main { display: flex; gap: 24px; font-weight: 500; font-size: .95rem; }
-nav.main a { text-decoration: none; color: var(--muted); }
-nav.main a:hover { color: var(--ink); }
-.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--bg); font-weight: 600; text-decoration: none; padding: 12px 20px; border-radius: 999px; border: 0; font: inherit; font-weight: 600; cursor: pointer; transition: transform .15s ease, background .15s ease; }
-.btn:hover { transform: translateY(-1px); }
-.btn.sky { background: var(--sky); color: var(--btn-fg); }
-.btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
-@media (max-width: 760px) { nav.main { display: none; } }
-
-/* hero */
-.hero { padding-block: 72px 56px; }
-.hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
-.hero h1 { font-size: clamp(2.6rem, 6.5vw, 5rem); font-weight: 800; }
-.hero h1 em { font-style: normal; color: var(--sky); position: relative; }
-.hero .lede { margin-top: 20px; font-size: 1.15rem; color: var(--muted); max-width: 34em; }
-.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.trust { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 28px; font-size: .9rem; color: var(--muted); }
-.trust span { display: inline-flex; align-items: center; gap: 6px; }
-.trust .star { width: .7em; height: .7em; }
-
-/* turnover ticket */
-.ticket { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 20px 50px -30px rgba(13,34,51,.45); min-width: 0; }
-.ticket header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 14px; }
-.ticket h3 { font-size: 1.15rem; }
-.ticket .addr { color: var(--muted); font-size: .85rem; }
-.timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-.timeline li { display: grid; grid-template-columns: 68px 1fr auto; gap: 12px; align-items: center; font-size: .92rem; }
-.timeline time { font-family: var(--mono); font-size: .8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-.chip { font-family: var(--mono); font-size: .7rem; padding: 2px 8px; border-radius: 999px; background: var(--sky-soft); color: var(--ink); white-space: nowrap; }
-.chip.done { background: var(--sky); color: var(--btn-fg); }
-.ticket footer { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: .85rem; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.ticket .note { font-size: .75rem; color: var(--muted); margin-top: 10px; font-style: italic; }
-
-/* sections */
-section.block { padding-block: 72px; }
-.head { display: grid; gap: 12px; margin-bottom: 40px; max-width: 40em; }
-.head h2 { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 700; }
-.head p { color: var(--muted); font-size: 1.05rem; }
-
-/* services */
-.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.svc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: grid; gap: 14px; align-content: start; transition: border-color .2s ease, transform .2s ease; }
-.svc:hover { border-color: var(--sky); transform: translateY(-2px); }
-.svc .tag { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.svc h3 { font-size: 1.5rem; font-weight: 700; }
-.svc p { color: var(--muted); }
-.svc ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .93rem; }
-.svc li { display: flex; gap: 10px; align-items: baseline; }
-.svc li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); flex: none; transform: translateY(-2px); }
-.svc .more { font-weight: 600; text-decoration: none; color: var(--ink); border-bottom: 2px solid var(--sky); justify-self: start; }
-
-/* floor care band */
-.band { background: var(--band); color: var(--band-fg); }
-.band .eyebrow, .band .head p { color: var(--band-muted); }
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid color-mix(in srgb, var(--band-fg) 18%, transparent); }
-.steps li { padding: 24px 20px 8px 0; display: grid; gap: 8px; align-content: start; }
-.steps .n { font-family: var(--mono); font-size: .8rem; color: var(--sky); }
-.steps h3 { font-size: 1.2rem; font-weight: 700; }
-.steps p { font-size: .9rem; color: var(--band-muted); }
-.floors { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 8px; }
-.floors span { font-size: .85rem; border: 1px solid color-mix(in srgb, var(--band-fg) 25%, transparent); border-radius: 999px; padding: 6px 14px; }
-
-/* why + areas */
-.split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
-.why { display: grid; gap: 22px; }
-.why div { display: grid; grid-template-columns: auto 1fr; gap: 14px; }
-.why .star { margin-top: .35em; width: .9rem; height: .9rem; }
-.why h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
-.why p { color: var(--muted); font-size: .95rem; }
-.areas { display: flex; flex-wrap: wrap; gap: 8px; }
-.areas span { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; font-size: .9rem; }
-.areas-note { margin-top: 16px; color: var(--muted); font-size: .9rem; }
-
-/* reviews placeholder */
-.reviews { border: 2px dashed var(--line); border-radius: var(--radius); padding: 32px; display: grid; gap: 10px; color: var(--muted); }
-.reviews h3 { color: var(--ink); font-size: 1.3rem; }
-
-/* quote */
-.quote { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
-.contact-lines { display: grid; gap: 14px; margin-top: 24px; }
-.contact-lines div { display: grid; gap: 2px; }
-.contact-lines .lbl { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.contact-lines .val { font-size: 1.15rem; font-weight: 600; user-select: all; }
-form.qf { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; min-width: 0; }
-.field { display: grid; gap: 6px; min-width: 0; }
-.field.full { grid-column: 1 / -1; }
-.field label { font-size: .85rem; font-weight: 600; }
-.field input, .field select, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; width: 100%; }
-.field textarea { min-height: 90px; resize: vertical; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--sky); outline-offset: 1px; border-color: var(--sky); }
-.qf .btn { grid-column: 1 / -1; justify-content: center; padding-block: 14px; }
-.qf .ok { grid-column: 1 / -1; background: var(--sky-soft); border-radius: 10px; padding: 12px 14px; font-size: .92rem; }
-
-footer.site { border-top: 1px solid var(--line); padding-block: 32px; color: var(--muted); font-size: .88rem; }
-footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
-
-@media (max-width: 900px) {
-  .hero .wrap, .split, .quote { grid-template-columns: 1fr; gap: 40px; }
-  .steps { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .services, .steps, form.qf { grid-template-columns: 1fr; }
-  .hero { padding-block: 44px 32px; }
-  section.block { padding-block: 52px; }
-  .svc, form.qf { padding: 22px; }
-  .timeline li { grid-template-columns: 58px 1fr; }
-  .timeline .chip { grid-column: 2; justify-self: start; }
-}
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-</style>
-
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Brilio", "url": "https://brilioclean.com", "telephone": "+17737665661", "email": "info@brilioclean.com", "description": "Residential, Airbnb and short-term rental, commercial, and floor care cleaning.", "address": {"@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL", "addressCountry": "US"}, "areaServed": [{"@type": "State", "name": "Illinois"}, {"@type": "State", "name": "Indiana"}, {"@type": "State", "name": "Wisconsin"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "06:00", "closes": "23:59"}]}</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="star" viewBox="-10 -10 20 20"><polygon points="0,-10 2.25,-3.9 8.66,-5 4.5,0 8.66,5 2.25,3.9 0,10 -2.25,3.9 -8.66,5 -4.5,0 -8.66,-5 -2.25,-3.9"/></symbol>
 </svg>
-
-<div class="draft"><div class="wrap"><strong>Draft preview.</strong> Highlighted items like <span class="ph">(312) 555-0100</span> are placeholders to replace with Brilio's real details.</div></div>
-
 <header class="site">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Brilio home"><svg class="star"><use href="#star"/></svg>brilio</a>
+    <a class="logo" href="/" aria-label="Brilio home"><svg class="star" aria-hidden="true"><use href="#star"/></svg>brilio</a>
     <nav class="main" aria-label="Main">
-      <a href="#services">Services</a>
-      <a href="#floors">Floor Care</a>
-      <a href="#areas">Areas</a>
-      <a href="#quote">Contact</a>
+      <a href="/residential-cleaning">Residential</a>
+      <a href="/airbnb-cleaning">Airbnb</a>
+      <a href="/commercial-cleaning">Commercial</a>
+      <a href="/floor-care">Floor Care</a>
     </nav>
-    <a class="btn" href="#quote">Free quote</a>
+    <div class="hdr-right">
+      <a class="hdr-phone" href="tel:+17737665661">(773) 766-5661</a>
+      <a class="btn" href="#quote">Free quote</a>
+    </div>
   </div>
 </header>
 
@@ -209,15 +45,15 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; fl
       <div>
         <p class="eyebrow">Chicago cleaning company</p>
         <h1 style="margin-top:14px">Every space, <em>brilliantly</em> clean.</h1>
-        <p class="lede">Brilio cleans homes, Airbnb and short-term rentals, offices, and commercial floors across Chicago. Book a one-time clean or a recurring schedule, and get a quote within one business day.</p>
+        <p class="lede">Brilio cleans homes, Airbnb and short-term rentals, offices, and commercial floors. Based in Chicago and serving Illinois, Indiana, and Wisconsin.</p>
         <div class="ctas">
           <a class="btn sky" href="#quote">Get a free quote</a>
-          <a class="btn ghost" href="#services">See services</a>
+          <a class="btn ghost" href="tel:+17737665661">Call (773) 766-5661</a>
         </div>
         <div class="trust">
-          <span><svg class="star"><use href="#star"/></svg><span class="ph">Insured &amp; bonded</span></span>
-          <span><svg class="star"><use href="#star"/></svg>Background-checked team</span>
-          <span><svg class="star"><use href="#star"/></svg>Supplies included</span>
+          <span><svg class="star" aria-hidden="true"><use href="#star"/></svg>Insured &amp; bonded</span>
+          <span><svg class="star" aria-hidden="true"><use href="#star"/></svg>24-hour re-clean guarantee</span>
+          <span><svg class="star" aria-hidden="true"><use href="#star"/></svg>Open daily, 6 AM – midnight</span>
         </div>
       </div>
 
@@ -253,30 +89,30 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; fl
         <article class="svc">
           <p class="tag">Homes &amp; apartments</p>
           <h3>Residential cleaning</h3>
-          <p>Weekly, biweekly, or one-time cleans for condos, two-flats, and houses.</p>
+          <p>Weekly, biweekly, or one-time cleans for condos, apartments, and houses.</p>
           <ul><li>Standard and deep cleans</li><li>Move-in / move-out cleaning</li><li>Inside oven, fridge, and cabinets on request</li></ul>
-          <a class="more" href="#quote">Get a home quote</a>
+          <a class="more" href="/residential-cleaning">Residential cleaning</a>
         </article>
         <article class="svc">
           <p class="tag">Hosts &amp; property managers</p>
           <h3>Airbnb &amp; short-term rentals</h3>
           <p>Turnovers that fit between checkout and check-in, with a photo report after every clean.</p>
           <ul><li>Linen change and laundry</li><li>Restocking of guest supplies</li><li>Damage and missing-item reporting</li></ul>
-          <a class="more" href="#quote">Set up turnovers</a>
+          <a class="more" href="/airbnb-cleaning">Airbnb turnovers</a>
         </article>
         <article class="svc">
           <p class="tag">Offices &amp; commercial</p>
           <h3>Office &amp; commercial cleaning</h3>
-          <p>After-hours or weekend cleaning for offices, retail, clinics, and common areas.</p>
+          <p>Early-morning, evening, or weekend cleaning for offices, retail, clinics, and common areas.</p>
           <ul><li>Nightly, weekly, or custom schedules</li><li>Restrooms, break rooms, trash and recycling</li><li>High-touch surface disinfecting</li></ul>
-          <a class="more" href="#quote">Request a walkthrough</a>
+          <a class="more" href="/commercial-cleaning">Commercial cleaning</a>
         </article>
         <article class="svc">
           <p class="tag">Hard floors</p>
           <h3>Commercial floor care</h3>
           <p>Stripping, waxing, buffing, and burnishing for VCT, vinyl, and other hard floors.</p>
           <ul><li>Full strip &amp; wax</li><li>Scrub-and-recoat between strips</li><li>Routine buffing and burnishing</li></ul>
-          <a class="more" href="#floors">See the process</a>
+          <a class="more" href="/floor-care">Floor care</a>
         </article>
       </div>
     </div>
@@ -287,7 +123,7 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; fl
       <div class="head">
         <p class="eyebrow">Floor care</p>
         <h2>How a strip &amp; wax works</h2>
-        <p>We usually work after hours or over a weekend, so your floors are dry and walkable before you open.</p>
+        <p>We work early mornings, evenings, or weekends, so your floors are dry and walkable before you open.</p>
       </div>
       <ol class="steps">
         <li><span class="n">Step 1</span><h3>Strip</h3><p>Remove old, yellowed finish down to the bare tile.</p></li>
@@ -310,30 +146,23 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; fl
           <h2>Clean you can check.</h2>
         </div>
         <div class="why">
-          <div><svg class="star"><use href="#star"/></svg><div><h3>Same crew, same checklist</h3><p>Recurring clients get a consistent team and a written list of what gets done each visit.</p></div></div>
-          <div><svg class="star"><use href="#star"/></svg><div><h3>Photo proof for hosts</h3><p>Every rental turnover ends with photos, so you can see the unit is guest-ready from anywhere.</p></div></div>
-          <div><svg class="star"><use href="#star"/></svg><div><h3><span class="ph">24-hour re-clean guarantee</span></h3><p>If something was missed, tell us within a day and we'll come back to fix it at no charge.</p></div></div>
+          <div><svg class="star" aria-hidden="true"><use href="#star"/></svg><div><h3>Same crew, same checklist</h3><p>Recurring clients get a consistent team and a written list of what gets done each visit.</p></div></div>
+          <div><svg class="star" aria-hidden="true"><use href="#star"/></svg><div><h3>Photo proof for hosts</h3><p>Every rental turnover ends with photos, so you can see the unit is guest-ready from anywhere.</p></div></div>
+          <div><svg class="star" aria-hidden="true"><use href="#star"/></svg><div><h3>24-hour re-clean guarantee</h3><p>If something was missed, tell us within 24 hours and we’ll come back to fix it at no charge.</p></div></div>
+          <div><svg class="star" aria-hidden="true"><use href="#star"/></svg><div><h3>Insured &amp; bonded</h3><p>Your home, rental, or business is protected while we work.</p></div></div>
         </div>
       </div>
       <div>
         <div class="head" style="margin-bottom:28px">
           <p class="eyebrow">Service area</p>
-          <h2>Chicago and nearby suburbs</h2>
+          <h2>Based in Chicago, serving three states</h2>
         </div>
-        <div class="areas">
-          <span>The Loop</span><span>River North</span><span>West Loop</span><span>Gold Coast</span><span>Lincoln Park</span><span>Lakeview</span><span>Wicker Park</span><span>Logan Square</span><span>Bucktown</span><span>Pilsen</span><span>Hyde Park</span><span>Andersonville</span><span>Evanston</span><span>Oak Park</span>
+        <div class="states">
+          <div class="state"><b>Illinois</b><span>Chicago headquarters</span></div>
+          <div class="state"><b>Indiana</b><span>All services</span></div>
+          <div class="state"><b>Wisconsin</b><span>All services</span></div>
         </div>
-        <p class="areas-note">Not listed? <a href="#quote">Ask us</a>. We'll tell you right away if we cover your address.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" style="padding-top:0">
-    <div class="wrap">
-      <div class="reviews">
-        <p class="eyebrow">Placeholder</p>
-        <h3>Client reviews go here</h3>
-        <p>Once your first clients leave Google reviews, we'll show three or four of them in this spot. Real reviews from named neighborhoods ("Lincoln Park homeowner") build trust quickly.</p>
+        <p class="areas-note">Not sure if we cover your address? Call or text <a href="tel:+17737665661">(773) 766-5661</a> and we’ll tell you right away.</p>
       </div>
     </div>
   </section>
@@ -344,47 +173,51 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; fl
         <div class="head" style="margin-bottom:0">
           <p class="eyebrow">Free quote</p>
           <h2>Tell us about your space.</h2>
-          <p>We reply within one business day with a price. Commercial and floor jobs get a free walkthrough first.</p>
+          <p>Send us a few details and we’ll get back to you with a price. Commercial and floor jobs start with a free walkthrough.</p>
         </div>
         <div class="contact-lines">
-          <div><span class="lbl">Call or text</span><span class="val ph">(312) 555-0100</span></div>
-          <div><span class="lbl">Email</span><span class="val ph">hello@brilio.com</span></div>
-          <div><span class="lbl">Hours</span><span class="val ph">Mon–Sat, 7 AM – 7 PM</span></div>
+          <div><span class="lbl">Call or text</span><a class="val" href="tel:+17737665661">(773) 766-5661</a></div>
+          <div><span class="lbl">Email</span><a class="val" href="mailto:info@brilioclean.com">info@brilioclean.com</a></div>
+          <div><span class="lbl">Hours</span><span class="val">Daily, 6 AM – midnight</span></div>
         </div>
       </div>
-      <form class="qf" id="quoteForm" novalidate>
-        <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" value="Jordan Rivera"></div>
-        <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" placeholder="(312) 000-0000"></div>
-        <div class="field"><label for="q-service">Service</label>
+      <form class="qf" id="quoteForm" action="https://formsubmit.co/ajax/info@brilioclean.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New quote request from brilioclean.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="hp" aria-hidden="true"><label for="q-honey">Leave this empty</label><input id="q-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" placeholder="(773) 000-0000"></div>
+        <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="q-zip">ZIP code</label><input id="q-zip" name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code"></div>
+        <div class="field full"><label for="q-service">Service</label>
           <select id="q-service" name="service">
             <option>Residential cleaning</option>
-            <option selected>Airbnb / short-term rental</option>
-            <option>Office / commercial</option>
+            <option>Airbnb & short-term rentals</option>
+            <option>Office & commercial</option>
             <option>Floor care (strip, wax, buff)</option>
           </select>
         </div>
-        <div class="field"><label for="q-zip">ZIP code</label><input id="q-zip" name="zip" inputmode="numeric" maxlength="5" value="60622"></div>
-        <div class="field full"><label for="q-details">Details</label><textarea id="q-details" name="details">2-bedroom unit, about 4 turnovers a week. Checkout 11 AM, check-in 4 PM.</textarea></div>
+        <div class="field full"><label for="q-details">Details <span class="req">(size of space, how often, preferred dates)</span></label><textarea id="q-details" name="details"></textarea></div>
         <button class="btn sky" type="submit">Request my quote</button>
-        <p class="ok" id="quoteOk" hidden>Thanks! The quote form isn't connected yet, so please call, text, or email us using the details on this page.</p>
+        <p class="ok" id="quoteOk" role="status" hidden>Thanks! We got your request and will be in touch soon. Need us sooner? Call or text (773) 766-5661.</p>
+        <p class="err" id="quoteErr" role="alert" hidden></p>
       </form>
     </div>
   </section>
-</main>
 
+</main>
 <footer class="site">
   <div class="wrap">
-    <a class="logo" href="#top" style="font-size:1.2rem"><svg class="star"><use href="#star"/></svg>brilio</a>
-    <span>Residential · Short-term rental · Commercial · Floor care · Chicago, IL</span>
-    <span>© 2026 Brilio</span>
+    <a class="logo" href="/" style="font-size:1.2rem"><svg class="star" aria-hidden="true"><use href="#star"/></svg>brilio</a>
+    <div class="contact">
+      <a href="tel:+17737665661">(773) 766-5661</a>
+      <a href="mailto:info@brilioclean.com">info@brilioclean.com</a>
+      <span>Daily, 6 AM – midnight</span>
+    </div>
+    <span>Serving Illinois, Indiana &amp; Wisconsin · © 2026 Brilio</span>
   </div>
 </footer>
-
-<script>
-document.getElementById('quoteForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  document.getElementById('quoteOk').hidden = false;
-});
-</script>
+<script src="/site.js"></script>
 </body>
 </html>
