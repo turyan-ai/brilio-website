@@ -5,7 +5,7 @@ Run from the repo root after editing: python3 tools/build.py .
 import json, sys, os
 
 OUT = sys.argv[1]
-SITE = "https://brilioclean.com"
+SITE = "https://www.brilioclean.com"
 PHONE = "(773) 766-5661"
 TEL = "+17737665661"
 EMAIL = "info@brilioclean.com"
