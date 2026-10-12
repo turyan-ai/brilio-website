@@ -1,4 +1,7 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/airbnb-cleaning", "destination": "/short-term-rental-cleaning", "permanent": true }
+  ]
 }

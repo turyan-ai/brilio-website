@@ -57,7 +57,7 @@ nav.main a:hover { color: var(--ink); }
 .btn:hover { transform: translateY(-1px); }
 .btn.sky { background: var(--sky); color: var(--btn-fg); }
 .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
-@media (max-width: 980px) { nav.main { display: none; } }
+@media (max-width: 1060px) { nav.main { display: none; } }
 
 /* hero */
 .hero { padding-block: 72px 56px; }
@@ -214,3 +214,9 @@ footer.site a:hover { color: var(--ink); }
 .mini h3 { font-size: 1.1rem; font-weight: 700; }
 .mini h3::after { content: " →"; color: var(--sky); }
 .mini p { color: var(--muted); font-size: .92rem; }
+
+/* process steps on a light background */
+.steps.steps-light { grid-template-columns: repeat(4, minmax(0, 1fr)); border-top-color: var(--line); }
+.steps.steps-light p { color: var(--muted); }
+@media (max-width: 900px) { .steps.steps-light { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .steps.steps-light { grid-template-columns: 1fr; } }

@@ -13,7 +13,7 @@ HOURS = "Daily, 6 AM – midnight"
 
 SERVICES = [
     ("residential-cleaning", "Residential cleaning"),
-    ("airbnb-cleaning", "Airbnb & short-term rentals"),
+    ("short-term-rental-cleaning", "Short-term rental (STR) cleaning"),
     ("commercial-cleaning", "Office & commercial"),
     ("floor-care", "Floor care (strip, wax, buff)"),
     ("post-construction-cleaning", "Post-construction cleaning"),
@@ -64,7 +64,7 @@ def header(active=""):
     <a class="logo" href="/" aria-label="Brilio home">{STAR}brilio</a>
     <nav class="main" aria-label="Main">
       {link("/residential-cleaning", "Residential", "residential-cleaning")}
-      {link("/airbnb-cleaning", "Airbnb", "airbnb-cleaning")}
+      {link("/short-term-rental-cleaning", "Short-Term Rentals", "short-term-rental-cleaning")}
       {link("/commercial-cleaning", "Commercial", "commercial-cleaning")}
       {link("/floor-care", "Floor Care", "floor-care")}
       <a href="/#more-services">More Services</a>
@@ -176,7 +176,7 @@ FLOOR_STEPS = '''      <ol class="steps">
         <span>VCT</span><span>Sheet vinyl</span><span>LVT</span><span>Terrazzo</span><span>Sealed concrete</span><span>Ceramic tile</span>
       </div>'''
 
-TICKET = '''      <article class="ticket" aria-label="Example Airbnb turnover schedule">
+TICKET = '''      <article class="ticket" aria-label="Example short-term rental turnover schedule">
         <header>
           <div>
             <p class="eyebrow">Same-day turnover</p>
@@ -208,7 +208,7 @@ LD = {
     "url": SITE,
     "telephone": TEL,
     "email": EMAIL,
-    "description": "Residential, Airbnb and short-term rental, commercial, and floor care cleaning.",
+    "description": "Residential, short-term rental, commercial, post-construction, and floor care cleaning.",
     "address": {"@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL", "addressCountry": "US"},
     "areaServed": [{"@type": "State", "name": s} for s in ("Illinois", "Indiana", "Wisconsin")],
     "openingHoursSpecification": [{
@@ -222,8 +222,8 @@ LD = {
 def home():
     ld = f'<script type="application/ld+json">{json.dumps(LD)}</script>\n'
     return head(
-        "Brilio | House, Airbnb, Office &amp; Floor Cleaning in Chicago",
-        "Brilio is a Chicago cleaning company offering residential cleaning, Airbnb and short-term rental turnovers, office and commercial cleaning, and floor stripping, waxing, and buffing. Insured and bonded. Free quotes.",
+        "Brilio | House, Short-Term Rental, Office &amp; Floor Cleaning in Chicago",
+        "Brilio is a Chicago cleaning company offering residential cleaning, short-term rental (STR) turnovers, office and commercial cleaning, and floor stripping, waxing, and buffing. Insured and bonded. Free quotes.",
         "/", ld,
     ) + header() + f'''
 <main id="top">
@@ -232,7 +232,7 @@ def home():
       <div>
         <p class="eyebrow">Chicago cleaning company</p>
         <h1 style="margin-top:14px">Every space, <em>brilliantly</em> clean.</h1>
-        <p class="lede">Brilio cleans homes, Airbnb and short-term rentals, offices, new construction, and commercial floors. Based in Chicago and serving Illinois, Indiana, and Wisconsin.</p>
+        <p class="lede">Brilio cleans homes, short-term rentals, offices, new construction, and commercial floors. Based in Chicago and serving Illinois, Indiana, and Wisconsin.</p>
         <div class="ctas">
           <a class="btn sky" href="#quote">Get a free quote</a>
           <a class="btn ghost" href="tel:{TEL}">Call {PHONE}</a>
@@ -261,10 +261,10 @@ def home():
         </article>
         <article class="svc">
           <p class="tag">Hosts &amp; property managers</p>
-          <h3>Airbnb &amp; short-term rentals</h3>
-          <p>Turnovers that fit between checkout and check-in, with a photo report after every clean.</p>
-          <ul><li>Linen change and laundry</li><li>Restocking of guest supplies</li><li>Damage and missing-item reporting</li></ul>
-          <a class="more" href="/airbnb-cleaning">Airbnb turnovers</a>
+          <h3>Short-term rental cleaning</h3>
+          <p>Everything an STR needs between guests: turnovers, linens, restocking, inspections, and photo reports.</p>
+          <ul><li>Same-day guest turnovers</li><li>Linens, laundry, and restocking</li><li>Inspections and damage reporting</li></ul>
+          <a class="more" href="/short-term-rental-cleaning">STR cleaning services</a>
         </article>
         <article class="svc">
           <p class="tag">Offices &amp; commercial</p>
@@ -406,32 +406,50 @@ PAGES = {
             ("Are you insured?", "Yes. Brilio is insured and bonded."),
         ],
     ),
-    "airbnb-cleaning": service_page(
-        "airbnb-cleaning",
-        "Airbnb &amp; Short-Term Rental Cleaning in Chicago | Brilio",
-        "Airbnb and VRBO turnover cleaning in Chicago and across Illinois, Indiana, and Wisconsin. Same-day turnovers, linen changes, restocking, and photo reports for hosts.",
-        "Airbnb &amp; short-term rentals",
-        "Turnovers done between checkout and check-in.",
-        "We reset your rental after every guest: cleaning, linens, restocking, and a photo report so you know it’s ready. With hours from 6 AM to midnight every day, we can handle tight same-day turnovers.",
+    "short-term-rental-cleaning": service_page(
+        "short-term-rental-cleaning",
+        "Short-Term Rental (STR) Cleaning in Chicago | Brilio",
+        "Short-term and vacation rental cleaning in Chicago and across Illinois, Indiana, and Wisconsin: same-day turnovers, linen and laundry, restocking, inspections, and photo reports for hosts and property managers.",
+        "Short-term rental cleaning",
+        "Short-term rental cleaning, from checkout to five stars.",
+        "We handle the cleaning side of your short-term rental: turnovers between guests, linens, restocking, inspections, and a photo report after every visit. We work every day from 6 AM to midnight, so tight same-day turnovers and last-minute bookings are covered.",
         f'''  <section class="block" style="padding-top:8px">
     <div class="wrap split" style="align-items:start">
       <div>
-        <div class="head"><p class="eyebrow">What’s included</p><h2>Every turnover covers</h2></div>
+        <div class="head"><p class="eyebrow">Guest turnovers</p><h2>Every turnover covers</h2></div>
         {checklist([
-            ("Guest-ready clean", ["Kitchen, bathrooms, and floors", "Dishes washed and put away", "Trash and recycling out"]),
-            ("Linens &amp; laundry", ["Beds stripped and remade", "Fresh towels staged", "Laundry started or swapped"]),
+            ("Guest-ready clean", ["Kitchen, bathrooms, and floors", "Dishes washed and put away", "Patios, balconies, and grills wiped down", "Trash and recycling out"]),
+            ("Linens &amp; staging", ["Beds stripped and remade", "Fresh towels staged", "Welcome items and guidebook set out"]),
             ("Restock &amp; report", ["Toiletries, coffee, and paper goods restocked", "Photos sent to you after each clean", "Damage or missing items flagged"]),
         ])}
       </div>
 {TICKET}
     </div>
   </section>
-''',
+''' + section("STR services", "Everything your rental needs between guests", "Book turnovers on their own, or let us take care of the whole cleaning side of your listing.", checklist([
+            ("Same-day turnovers", ["Cleaning between checkout and check-in", "Last-minute and back-to-back bookings", "Weekends and holidays included"]),
+            ("Linen &amp; laundry", ["Bedding and towels washed, dried, and folded", "Linen swaps with your spare sets", "Stained or damaged linens flagged"]),
+            ("Restocking &amp; supplies", ["Guest essentials restocked every visit", "Low-supply alerts before you run out", "Supply runs on request"]),
+            ("Inspections &amp; reporting", ["Pre-arrival checks before guests arrive", "Damage, maintenance, and missing-item reports", "Lost-and-found items logged and held"]),
+            ("Deep cleans", ["Periodic deep cleans between bookings", "Inside appliances, baseboards, and vents", "Carpet, upholstery, and window add-ons"]),
+            ("Mid-stay &amp; new listings", ["Mid-stay cleans for longer bookings", "Launch cleans for new listings", "Photo-ready staging before listing photos"]),
+        ])) + section("How it works", "Set up once, cleaned after every stay", "", '''<ol class="steps steps-light">
+        <li><span class="n">Step 1</span><h3>Walkthrough</h3><p>We visit the property and build a checklist for your unit and your standards.</p></li>
+        <li><span class="n">Step 2</span><h3>Share your calendar</h3><p>Send us your booking calendar so we can schedule a turnover after every checkout.</p></li>
+        <li><span class="n">Step 3</span><h3>We clean</h3><p>Our team resets the unit, handles linens, and restocks supplies.</p></li>
+        <li><span class="n">Step 4</span><h3>You get a report</h3><p>Photos of the finished unit, plus notes on damage, maintenance, and low supplies.</p></li>
+      </ol>''') + section("Who we work with", "For one listing or a whole portfolio", "", '''<div class="states">
+        <div class="state"><b>Hosts &amp; co-hosts</b><span>One unit or several, self-managed</span></div>
+        <div class="state"><b>Property managers</b><span>Scheduled turnovers across a portfolio</span></div>
+        <div class="state"><b>Vacation &amp; mid-term rentals</b><span>Weekly stays, monthly stays, and corporate housing</span></div>
+      </div>'''),
         [
-            ("Can you do same-day turnovers?", "Yes. We work from 6 AM to midnight every day, so we can fit a turnover between an 11 AM checkout and a 4 PM check-in."),
-            ("Do you restock supplies?", "Yes. We restock toiletries, paper goods, and kitchen basics from the supplies you keep at the property, and tell you when you’re running low."),
-            ("Will I know when the unit is ready?", "Yes. After each turnover we send you photos of the finished unit, plus notes on any damage or missing items."),
-            ("Do you work with property managers who have several units?", "Yes. Tell us how many units you manage and how often they turn over, and we’ll set up a schedule."),
+            ("Can you do same-day turnovers?", "Yes. We work from 6 AM to midnight every day, so we can fit a turnover between an 11 AM checkout and a 4 PM check-in, including weekends and holidays."),
+            ("How do you know when to clean?", "Share your booking calendar with us and we schedule a turnover after every checkout. We also take one-off and last-minute requests by phone or text."),
+            ("Do you restock supplies?", "Yes. We restock toiletries, paper goods, and kitchen basics from the supplies you keep at the property, and let you know before anything runs out."),
+            ("Will I know when the unit is ready?", "Yes. After each turnover we send you photos of the finished unit, plus notes on any damage, maintenance issues, or missing items."),
+            ("What happens if a guest leaves something behind?", "We log it, send you a photo, and keep it safe at the property or with us until you tell us what to do with it."),
+            ("Do you work with property managers who have several units?", "Yes. Tell us how many units you manage and how often they turn over, and we’ll set up a schedule and a checklist for each property."),
         ],
     ),
     "commercial-cleaning": service_page(
