@@ -240,7 +240,7 @@ STATS = '''  <section class="stats-band" aria-label="Brilio by the numbers">
 # Places Brilio cleans, grouped for the "Places we clean" section
 PLACES = [
     ("Homes &amp; rentals", ["Houses and apartments", "Condos and high-rises", "Short-term and vacation rentals", "Corporate and mid-term housing", "Apartment building common areas"]),
-    ("Offices &amp; retail", ["Offices and coworking spaces", "Retail stores", "Car dealerships and showrooms", "Banks and professional offices", "Salons and spas"]),
+    ("Offices, retail &amp; dining", ["Offices and coworking spaces", "Retail stores", "Restaurants and cafés", "Car dealerships and showrooms", "Banks and professional offices", "Salons and spas"]),
     ("Health, education &amp; fitness", ["Medical and dental offices", "Schools", "Daycare centers", "Gyms and fitness studios", "Recreation centers"]),
     ("Industrial &amp; community", ["Warehouses and light industrial", "Places of worship", "Government and municipal buildings", "Event venues", "New construction and renovations"]),
 ]
