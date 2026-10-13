@@ -237,6 +237,42 @@ STATS = '''  <section class="stats-band" aria-label="Brilio by the numbers">
     </div>
   </section>
 '''
+# Photos in images/: key -> (alt text, width of the large file, height of the large file)
+PHOTOS = {
+    "office-desk-cleaning": ("Brilio cleaner wiping down an office desk, with a cleaning cart beside her", 1400, 723),
+    "office-floor-scrubber": ("Brilio cleaner running a floor scrubber through an open-plan office", 896, 1200),
+    "store-floor-buffing": ("Brilio cleaner buffing a store floor to a high shine", 836, 1004),
+    "store-floor-mopping": ("Brilio cleaner applying floor finish with a flat mop in a store aisle", 836, 1004),
+    "office-glass-cleaning": ("Brilio cleaner squeegeeing interior office windows", 896, 1200),
+}
+
+
+def photo(key, sizes):
+    alt, w, h = PHOTOS[key]
+    return (f'<img src="/images/{key}-800.jpg" srcset="/images/{key}-800.jpg 800w, /images/{key}-1400.jpg {w}w" '
+            f'sizes="{sizes}" width="{w}" height="{h}" alt="{alt}" loading="lazy" decoding="async">')
+
+
+def mosaic(wide, tall1, tall2):
+    """One wide photo and two tall ones in a row."""
+    return (f'''  <section class="photos-band" aria-label="Brilio at work">
+    <div class="wrap mosaic">
+      <figure class="m-wide">{photo(wide, "(max-width: 760px) 100vw, 560px")}</figure>
+      <figure>{photo(tall1, "(max-width: 760px) 50vw, 280px")}</figure>
+      <figure>{photo(tall2, "(max-width: 760px) 50vw, 280px")}</figure>
+    </div>
+  </section>
+''')
+
+
+def photo_row(keys):
+    figs = "".join(f'<figure>{photo(k, "(max-width: 600px) 100vw, 360px")}</figure>' for k in keys)
+    return f'''  <section class="photos-band" aria-label="Brilio at work">
+    <div class="wrap photo-row">{figs}</div>
+  </section>
+'''
+
+
 # Places Brilio cleans, grouped for the "Places we clean" section
 PLACES = [
     ("Homes &amp; rentals", ["Houses and apartments", "Condos and high-rises", "Short-term and vacation rentals", "Corporate and mid-term housing", "Apartment building common areas"]),
@@ -305,6 +341,7 @@ def home():
   </section>
 
 {STATS}
+{mosaic("office-desk-cleaning", "store-floor-buffing", "office-floor-scrubber")}
   <section class="block" id="services">
     <div class="wrap">
       <div class="head">
@@ -531,6 +568,7 @@ PAGES = {
         "Office &amp; commercial cleaning",
         "Office and commercial cleaning, done before you open.",
         "We clean offices, retail spaces, clinics, and building common areas on your schedule, from 6 AM to midnight, seven days a week. Every new client starts with a free walkthrough and a written cleaning plan.",
+        mosaic("office-desk-cleaning", "office-glass-cleaning", "office-floor-scrubber") +
         section("Places we clean", "Commercial spaces we clean", "Don’t see your type of space? Ask us at your walkthrough.", places(PLACES[1:])) +
         section("What’s included", "A plan built around your space", "We agree on the tasks and how often each one happens at your walkthrough. Here’s what a typical plan covers.", checklist([
             ("Workspaces", ["Desks and work surfaces wiped", "Trash and recycling emptied", "Vacuuming and mopping", "Glass doors and partitions"]),
@@ -552,6 +590,7 @@ PAGES = {
         "Floor care",
         "Floor stripping, waxing, and buffing.",
         "We restore and maintain hard floors in offices, stores, schools, and common areas. We work early mornings, evenings, or weekends so your floors are ready when you open.",
+        photo_row(["office-floor-scrubber", "store-floor-buffing", "store-floor-mopping"]) +
         section("Services", "Pick the level your floors need", "", checklist([
             ("Strip &amp; wax", ["Old finish fully removed", "Floor sealed and refinished", "Best for dull, yellowed, or damaged finish"]),
             ("Scrub &amp; recoat", ["Top layers of finish scrubbed off", "Fresh coats applied", "Extends the time between full strips"]),
