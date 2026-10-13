@@ -20,7 +20,7 @@ SERVICES = [
     ("residential-cleaning", "Residential cleaning"),
     ("short-term-rental-cleaning", "Short-term rental (STR) cleaning"),
     ("commercial-cleaning", "Office & commercial"),
-    ("floor-care", "Floor care (strip, wax, buff)"),
+    ("floor-care", "Floor care (strip, wax, scrub, buff)"),
     ("post-construction-cleaning", "Post-construction cleaning"),
     ("move-out-cleaning", "Move-in / move-out cleaning"),
     ("deep-cleaning", "Deep cleaning"),
