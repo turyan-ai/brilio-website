@@ -235,3 +235,12 @@ footer.site a:hover { color: var(--ink); }
   .stats { grid-template-columns: 1fr 1fr; gap: 22px 0; }
   .stat:nth-child(3) { border-left: 0; padding-left: 0; }
 }
+
+/* places we clean */
+.places { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.place-group { padding: 22px 22px 6px 0; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.place-group h3 { font-size: 1.05rem; font-weight: 700; }
+.place-group ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); font-size: .95rem; }
+.place-group li { display: flex; gap: 10px; align-items: baseline; }
+.place-group li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); flex: none; transform: translateY(-2px); }
+@media (max-width: 1000px) and (min-width: 521px) { .places { grid-template-columns: 1fr 1fr; } }

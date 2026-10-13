@@ -237,6 +237,23 @@ STATS = '''  <section class="stats-band" aria-label="Brilio by the numbers">
     </div>
   </section>
 '''
+# Places Brilio cleans, grouped for the "Places we clean" section
+PLACES = [
+    ("Homes &amp; rentals", ["Houses and apartments", "Condos and high-rises", "Short-term and vacation rentals", "Corporate and mid-term housing", "Apartment building common areas"]),
+    ("Offices &amp; retail", ["Offices and coworking spaces", "Retail stores", "Car dealerships and showrooms", "Banks and professional offices", "Salons and spas"]),
+    ("Health, education &amp; fitness", ["Medical and dental offices", "Schools", "Daycare centers", "Gyms and fitness studios", "Recreation centers"]),
+    ("Industrial &amp; community", ["Warehouses and light industrial", "Places of worship", "Government and municipal buildings", "Event venues", "New construction and renovations"]),
+]
+
+
+def places(groups=PLACES):
+    cols = "".join(
+        f'<div class="place-group"><h3>{title}</h3><ul>' + "".join(f"<li>{i}</li>" for i in items) + "</ul></div>"
+        for title, items in groups
+    )
+    return f'<div class="places">{cols}</div>'
+
+
 STATS_PAGES = ("short-term-rental-cleaning", "residential-cleaning", "linen-rental-laundry")
 
 TRUST = f'''<div class="trust">
@@ -341,6 +358,17 @@ def home():
         <a class="mini" href="/deep-cleaning"><h3>Deep cleaning</h3><p>Detailed top-to-bottom cleaning for a first visit, a new season, or a fresh start.</p></a>
         <a class="mini" href="/window-cleaning"><h3>Window cleaning</h3><p>Provided by our partner company, Primetime Window Cleaners.</p></a>
       </div>
+    </div>
+  </section>
+
+  <section class="block" id="places" style="padding-top:0">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:28px">
+        <p class="eyebrow">Places we clean</p>
+        <h2>From one-bedroom rentals to warehouses</h2>
+        <p>Homes, short-term rentals, and businesses of every kind across Chicago and nearby. Don’t see yours? Ask us.</p>
+      </div>
+      {places()}
     </div>
   </section>
 
@@ -503,6 +531,7 @@ PAGES = {
         "Office &amp; commercial cleaning",
         "Office and commercial cleaning, done before you open.",
         "We clean offices, retail spaces, clinics, and building common areas on your schedule, from 6 AM to midnight, seven days a week. Every new client starts with a free walkthrough and a written cleaning plan.",
+        section("Places we clean", "Commercial spaces we clean", "Don’t see your type of space? Ask us at your walkthrough.", places(PLACES[1:])) +
         section("What’s included", "A plan built around your space", "We agree on the tasks and how often each one happens at your walkthrough. Here’s what a typical plan covers.", checklist([
             ("Workspaces", ["Desks and work surfaces wiped", "Trash and recycling emptied", "Vacuuming and mopping", "Glass doors and partitions"]),
             ("Restrooms", ["Toilets, urinals, and sinks sanitized", "Mirrors and fixtures", "Soap, paper towels, and toilet paper refilled", "Floors mopped and disinfected"]),
