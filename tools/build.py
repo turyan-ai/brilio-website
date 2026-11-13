@@ -16,6 +16,10 @@ PHONE = "(224) 434-4242"
 TEL = "+12244344242"
 EMAIL = "info@brilioclean.com"
 HOURS = "Daily, 6 AM – midnight"
+# Google Business Profile. Update the rating/count now and then as reviews come in.
+GOOGLE_REVIEW_URL = "https://g.page/r/CZVAIY64Mw15EBM/review"
+GOOGLE_RATING = "5.0"
+GOOGLE_REVIEW_COUNT = 22
 
 SERVICES = [
     ("residential-cleaning", "Residential cleaning"),
@@ -134,6 +138,7 @@ def quote(selected, heading="Tell us about your space.", sub="Send us a few deta
           {if_phone(f'<div><span class="lbl">Call or text</span><a class="val" href="tel:{TEL}">{PHONE}</a></div>')}
           <div><span class="lbl">Email</span><a class="val" href="mailto:{EMAIL}">{EMAIL}</a></div>
           <div><span class="lbl">Hours</span><span class="val">{HOURS}</span></div>
+          <div><span class="lbl">Past customer?</span><a class="val" href="{GOOGLE_REVIEW_URL}" target="_blank" rel="noopener">Leave us a Google review</a></div>
         </div>
       </div>
       <form class="qf" id="quoteForm" action="https://formsubmit.co/ajax/df6a463ea6c9df99f22c3e2976bc7e55" method="POST" data-fallback="{if_phone(f'Please call or text us at {PHONE}, or email {EMAIL}.', f'Please email us at {EMAIL}.')}" novalidate>
@@ -168,6 +173,7 @@ def footer():
       {if_phone(f'<a href="tel:{TEL}">{PHONE}</a>')}
       <a href="mailto:{EMAIL}">{EMAIL}</a>
       <span>{HOURS}</span>
+      <a href="{GOOGLE_REVIEW_URL}" target="_blank" rel="noopener">Review us on Google</a>
     </div>
     <span>Serving Illinois, Indiana &amp; Wisconsin · © 2026 Brilio</span>
   </div>
@@ -300,6 +306,7 @@ def places(groups=PLACES):
 STATS_PAGES = ("short-term-rental-cleaning", "residential-cleaning", "linen-rental-laundry")
 
 TRUST = f'''<div class="trust">
+          <span>{STAR}{GOOGLE_RATING} on Google ({GOOGLE_REVIEW_COUNT} reviews)</span>
           <span>{STAR}Insured &amp; bonded</span>
           <span>{STAR}24-hour re-clean guarantee</span>
           <span>{STAR}Open daily, 6 AM – midnight</span>
