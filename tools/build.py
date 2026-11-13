@@ -6,8 +6,9 @@ import json, sys, os, re
 
 OUT = sys.argv[1]
 SITE = "https://www.brilioclean.com"
-# Google Analytics 4 Measurement ID (starts with "G-"). Empty = Google Analytics off.
-GA_ID = ""
+# Google tag ID from Google Analytics: "GTM-..." (Google tag container) or "G-..." (GA4
+# Measurement ID). Empty = Google Analytics off.
+GA_ID = "GTM-P9RXV9JN"
 
 # Set SHOW_PHONE = False to hide the phone everywhere (email and the quote form remain).
 SHOW_PHONE = True
@@ -33,6 +34,12 @@ PRIMETIME_QUOTE = "https://primetimewindowcleaning.com/contact/"
 def analytics():
     if not GA_ID:
         return ""
+    if GA_ID.startswith("GTM-"):
+        # Snippet exactly as Google Analytics' "Set up a Google tag" page gives it.
+        return (f'<script async src="https://www.googletagmanager.com/gtm.js?id={GA_ID}"></script>\n'
+                "<script>\n  window.dataLayer = window.dataLayer || [];\n"
+                "  function gtag(){dataLayer.push(arguments);}\n"
+                "  gtag('js', new Date());\n</script>\n")
     return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>\n'
             "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}"
             f"gtag('js',new Date());gtag('config','{GA_ID}');</script>\n")
@@ -58,7 +65,7 @@ def head(title, desc, path, extra=""):
     return f'''<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+{analytics()}<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
@@ -80,7 +87,7 @@ def head(title, desc, path, extra=""):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script defer src="/_vercel/insights/script.js"></script>
-{analytics()}{extra}</head>
+{extra}</head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="star" viewBox="-10 -10 20 20"><path d="M0,-10 C1.2,-3 3,-1.2 10,0 C3,1.2 1.2,3 0,10 C-1.2,3 -3,1.2 -10,0 C-3,-1.2 -1.2,-3 0,-10Z"/></symbol>
