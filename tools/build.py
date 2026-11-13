@@ -9,10 +9,10 @@ SITE = "https://www.brilioclean.com"
 # Google Analytics 4 Measurement ID (starts with "G-"). Empty = Google Analytics off.
 GA_ID = ""
 
-# Phone is hidden until the business line is active. Set SHOW_PHONE = True to show it everywhere again.
-SHOW_PHONE = False
-PHONE = "(773) 766-5661"
-TEL = "+17737665661"
+# Set SHOW_PHONE = False to hide the phone everywhere (email and the quote form remain).
+SHOW_PHONE = True
+PHONE = "(224) 434-4242"
+TEL = "+12244344242"
 EMAIL = "info@brilioclean.com"
 HOURS = "Daily, 6 AM – midnight"
 
